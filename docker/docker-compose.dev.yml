@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  client:
+    image: node:8.12-alpine
+    ports:
+      - '3210:3000'
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    command: yarn start
+    working_dir: /app
+    volumes:
+      - '../client:/app'
