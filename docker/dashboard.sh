@@ -33,13 +33,15 @@ function check {
 	fi
 }
 
-function composeFile {
+function composeFiles {
+	echo "-f ./docker/docker-compose.yml "
+
 	if [[ ${TARGET} == "dev" ]]; then
-		echo "./docker/docker-compose.dev.yml"
+		echo "-f ./docker/docker-compose.dev.yml"
 	fi
 
 	if [[ ${TARGET} == "prod" ]]; then
-		echo "./docker/docker-compose.yml"
+		echo "-f ./docker/docker-compose.prod.yml"
 	fi
 }
 
@@ -49,7 +51,7 @@ function launch {
 		return
 	fi
 
-	docker-compose -p ${COMPOSE_PROJECT_NAME} -f $(composeFile) $@
+	docker-compose -p ${COMPOSE_PROJECT_NAME} $(composeFiles) $@
 }
 
 pushd `pwd` > /dev/null

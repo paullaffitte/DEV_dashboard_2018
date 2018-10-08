@@ -1,9 +1,11 @@
 version: '3.5'
 
 services:
-  client:
-    build:
-      context: ../client
-      dockerfile: ./docker/Dockerfile
+  api:
+    image: node:8.12-alpine
     ports:
-      - '3210:80'
+      - '3211:3030'
+    command: yarn start
+    working_dir: /app
+    volumes:
+      - '../api:/app'
