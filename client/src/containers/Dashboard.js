@@ -3,28 +3,50 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import ActionCreators from '../state/actions';
 import { Button } from 'antd';
-// import './Dashboard.css';
+import Drawer from 'rmc-drawer';
+
+import 'rmc-drawer/assets/index.css';
+import './Dashboard.css';
 
 class Dashboard extends Component {
 	state = {
-
+		drawerIsOpen: false,
 	}
 
-	logout = () => {
-		this.props.actions.logout();
+	Sidebar = (
+		<div className="Drawer__sidebar">
+			<Button
+				style={{ marginLeft: 16 }}
+				onClick={this.props.actions.logout}
+				type="danger"
+			>
+				Logout
+			</Button>
+		</div>
+	);
+
+	toggleDrawer = (isOpen) => {
+		this.setState({ drawerIsOpen: isOpen });
 	}
 
 	render() {
 		return (
 			<div className="Dashboard">
-				<span>Hello world! {this.props.currentUser.email}</span>
-				<Button
-					style={{ marginLeft: 16 }}
-					onClick={this.logout}
-					type="danger"
+				<Drawer
+					className="Drawer"
+					open={this.state.drawerIsOpen}
+					onOpenChange={this.toggleDrawer}
+					position="right"
+					sidebar={this.Sidebar}
 				>
-					Logout
-				</Button>
+					<Button
+						className="Dashboard__openButton"
+						shape="circle"
+						icon="plus"
+						size="large"
+						onClick={() => this.toggleDrawer(true)}
+					/>
+				</Drawer>
 			</div>
 		);
 	}
