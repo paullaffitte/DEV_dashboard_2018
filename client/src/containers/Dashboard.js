@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import ActionCreators from '../state/actions';
-import { Button } from 'antd';
-import Drawer from 'rmc-drawer';
+import { Button, Drawer } from 'antd';
+import Widget from '../components/Widget';
+import WidgetList from '../components/WidgetList';
 
-import 'rmc-drawer/assets/index.css';
 import './Dashboard.css';
 
 class Dashboard extends Component {
@@ -14,9 +14,10 @@ class Dashboard extends Component {
 	}
 
 	Sidebar = (
-		<div className="Drawer__sidebar">
+		<div className="Drawer">
+			<WidgetList />
 			<Button
-				style={{ marginLeft: 16 }}
+				style={{ marginTop: 16 }}
 				onClick={this.props.actions.logout}
 				type="danger"
 			>
@@ -32,13 +33,7 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div className="Dashboard">
-				<Drawer
-					className="Drawer"
-					open={this.state.drawerIsOpen}
-					onOpenChange={this.toggleDrawer}
-					position="right"
-					sidebar={this.Sidebar}
-				>
+				<div className="Dashboard__content">
 					<Button
 						className="Dashboard__openButton"
 						shape="circle"
@@ -46,7 +41,21 @@ class Dashboard extends Component {
 						size="large"
 						onClick={() => this.toggleDrawer(true)}
 					/>
-				</Drawer>
+					<Widget
+						name="weather_city"
+						config={{ city: "Montpellier" }}
+					/>
+				</div>
+				<Drawer
+          title="Widgets"
+          placement="right"
+          closable={false}
+					width={420}
+          onClose={() => this.toggleDrawer(false)}
+          visible={this.state.drawerIsOpen}
+        >
+          {this.Sidebar}
+        </Drawer>
 			</div>
 		);
 	}

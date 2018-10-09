@@ -5195,6 +5195,10 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
+openweather-apis@^3.3.5:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/openweather-apis/-/openweather-apis-3.3.5.tgz#3d3d3228151c123091a8c235598017143b59bcc5"
+
 opn@5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/opn/-/opn-5.2.0.tgz#71fdf934d6827d676cecbea1531f95d354641225"

@@ -1,12 +1,11 @@
-.Drawer {
+
+.Dashboard {
   display: flex;
   flex-direction: column;
 }
 
-.Drawer__sidebar {
-  background: white;
-  height: 100%;
-  padding: 8px 16px;
+.Dashboard__content {
+  padding: 32px;
 }
 
 .Dashboard__openButton {
