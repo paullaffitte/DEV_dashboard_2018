@@ -12,3 +12,20 @@ services:
     working_dir: /app
     volumes:
       - '../client:/app'
+
+  api:
+    env_file:
+      - environment/db.dev.env
+
+  mongo:
+    env_file:
+      - environment/mongo.dev.env
+
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 27018:8081
+    env_file:
+      - environment/mongo-express.dev.env
+    restart: unless-stopped

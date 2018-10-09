@@ -9187,6 +9187,7 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
 rmc-drawer@^0.4.11:
   version "0.4.11"
   resolved "https://registry.yarnpkg.com/rmc-drawer/-/rmc-drawer-0.4.11.tgz#9a8c6125a4ccd37b916f32f7e8b477d11d413ee3"
+  integrity sha512-YfB9XEJ8iM0MMuLWAK4313uOxSM8NAljC8Cqun1KamXutglYTuRviUuTLNSOzV8HHPp5kNpsVduvPCGLWXvThw==
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.4"

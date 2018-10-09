@@ -7,3 +7,11 @@ services:
       dockerfile: ./docker/Dockerfile
     ports:
       - '3210:80'
+
+  api:
+    env_file:
+      - environment/db.prod.env
+
+  mongo:
+    env_file:
+      - environment/mongo.prod.env
