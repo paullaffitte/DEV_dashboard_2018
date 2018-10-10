@@ -8,18 +8,14 @@ import Services from '../constants/Services';
 class WidgetList extends Component {
 
   render() {
-
-    console.log(Object.keys(Widgets));
-
     return (
       <div className="WidgetList">
         {Object.keys(Widgets).map((key, i) => {
-          console.log(key);
           const widget = Widgets[key];
           const service = Services[widget.service];
 
           return (
-            <span>
+            <span key={i}>
               {service && (
                 <div style={{ paddingBottom: 8 }}>
                   <img
@@ -29,7 +25,9 @@ class WidgetList extends Component {
                   <span>{service.name}</span>
                 </div>
               )}
-              <Button key={i}>
+              <Button
+                onClick={() => this.props.onWidgetClick(key)}
+              >
                 <span style={{ fontWeight: 'bold' }}>{widget.name}</span>
                 <span> - {widget.desc}</span>
               </Button>
@@ -42,6 +40,7 @@ class WidgetList extends Component {
 }
 
 WidgetList.propTypes = {
+  onWidgetClick: PropTypes.func,
 };
 
 export default WidgetList;

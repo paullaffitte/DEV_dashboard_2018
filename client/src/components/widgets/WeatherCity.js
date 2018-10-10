@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, Icon, Input, Button, Alert } from 'antd';
 import weather from 'openweather-apis';
 import Services from '../../constants/Services';
 
@@ -27,10 +28,9 @@ class WeatherCity extends Component {
   update() {
     weather.getAllWeather((err, json) => {
       if (!err) {
-        console.log(json);
         this.setState({
-          temp: json.main.temp,
-          desc: json.weather[0] && json.weather[0].description,
+          temp: json && json.main && json.main.temp,
+          desc: json && json.weather && json.weather[0] && json.weather[0].description,
         });
       }
     });
@@ -42,5 +42,28 @@ class WeatherCity extends Component {
     );
   }
 }
+
+class __WeatherCityForm extends Component {
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    return (
+      <Form style={{textAlign: 'right'}}>
+        <Form.Item>
+          {getFieldDecorator('city', {
+            rules: [{ required: true, message: 'Please enter a city.' }],
+          })(
+            <Input prefix={<Icon type='environment' />} placeholder='City' />
+          )}
+        </Form.Item>
+      </Form>
+    );
+  }
+}
+
+const WeatherCityForm = Form.create()(__WeatherCityForm);
+
+export {
+  WeatherCityForm,
+};
 
 export default WeatherCity;

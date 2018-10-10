@@ -5,17 +5,37 @@ import ActionCreators from '../state/actions';
 import { Button, Drawer } from 'antd';
 import Widget from '../components/Widget';
 import WidgetList from '../components/WidgetList';
+import WidgetForm from '../components/WidgetForm';
 
 import './Dashboard.css';
 
 class Dashboard extends Component {
 	state = {
 		drawerIsOpen: false,
+		widgetFormOpen: null,
+	}
+
+	setWidgetForm = (name) => {
+		this.setState({ widgetFormOpen: name });
+	}
+
+	toggleDrawer = (isOpen) => {
+		this.setState({ drawerIsOpen: isOpen });
+	}
+
+	onAddWidget = (widget, config) => {
+		this.props.actions.addWidget(widget, config);
+	}
+
+	onRemoveWidget = (id) => {
+		this.props.actions.removeWidget(id);
 	}
 
 	Sidebar = (
 		<div className="Drawer">
-			<WidgetList />
+			<WidgetList
+				onWidgetClick={this.setWidgetForm}
+			/>
 			<Button
 				style={{ marginTop: 16 }}
 				onClick={this.props.actions.logout}
@@ -25,10 +45,6 @@ class Dashboard extends Component {
 			</Button>
 		</div>
 	);
-
-	toggleDrawer = (isOpen) => {
-		this.setState({ drawerIsOpen: isOpen });
-	}
 
 	render() {
 		return (
@@ -41,10 +57,15 @@ class Dashboard extends Component {
 						size="large"
 						onClick={() => this.toggleDrawer(true)}
 					/>
-					<Widget
-						name="weather_city"
-						config={{ city: "Montpellier" }}
-					/>
+					{this.props.widgets.map((widget, i) => (
+						<Widget
+							key={i}
+							id={widget.id}
+							name={widget.name}
+							config={widget.config}
+							onRemove={this.onRemoveWidget}
+						/>
+					))}
 				</div>
 				<Drawer
           title="Widgets"
@@ -56,6 +77,11 @@ class Dashboard extends Component {
         >
           {this.Sidebar}
         </Drawer>
+				<WidgetForm
+					widget={this.state.widgetFormOpen}
+					onAddWidget={this.onAddWidget}
+					onClose={() => this.setWidgetForm(null)}
+				/>
 			</div>
 		);
 	}
@@ -63,6 +89,7 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => ({
 	currentUser: state.app.currentUser,
+	widgets: state.app.currentUser && state.app.currentUser.widgets,
 });
 
 const mapDispatchToProps = dispatch => ({

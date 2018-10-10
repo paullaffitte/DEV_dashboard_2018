@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'antd'
+import { Card, Button } from 'antd'
 import PropTypes from 'prop-types';
 
 import Widgets from '../constants/Widgets';
@@ -19,6 +19,7 @@ class Widget extends Component {
         title={title}
         className="Widget"
         style={{ width: 'min-content' }}
+        extra={<Button style={{ marginLeft: 16 }} icon="close" onClick={() => this.props.onRemove(this.props.id)} />}
       >
         <WidgetComponent
           config={this.props.config}
@@ -29,8 +30,10 @@ class Widget extends Component {
 }
 
 Widget.propTypes = {
+  id: PropTypes.string,
   name: PropTypes.string,
   config: PropTypes.object,
+  onRemove: PropTypes.func,
 };
 
 export default Widget;

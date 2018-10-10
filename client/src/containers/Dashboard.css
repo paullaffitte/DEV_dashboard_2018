@@ -13,3 +13,9 @@
   top: 16px;
   right: 16px;
 }
+
+.Dashboard .Widget {
+  float: left;
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
