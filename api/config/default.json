@@ -65,9 +65,10 @@
       ]
     },
     "github": {
-      "clientID": "your github client id",
-      "clientSecret": "your github client secret",
-      "successRedirect": "/"
+      "clientID": "bcbc2948f4d726eb367d",
+      "clientSecret": "fdcfdc5e0491b5e6bf48c1ee2b60fe15d313335c",
+      "successRedirect": "http://localhost:3000/",
+      "scope": "user public_repo repo gist"
     },
     "cookie": {
       "enabled": true,

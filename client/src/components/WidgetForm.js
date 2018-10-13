@@ -24,25 +24,25 @@ class WidgetForm extends Component {
   }
 
   render() {
-    if (!this.props.widget) {
-      return null;
-    }
-
-    const WidgetFormComponent = Widgets[this.props.widget].form;
-    let title = 'Configure ' + Widgets[this.props.widget].name;
+    const widget = Widgets[this.props.widget];
+    console.log(widget);
+    const WidgetFormComponent = widget && widget.form;
+    let title = 'Configure ' + (widget && widget.name);
 
     return (
       <Modal
         title={title}
-        visible={true}
+        visible={!!this.props.widget}
         onCancel={this.props.onClose}
         onOk={this.validateForm}
       >
-        <WidgetFormComponent
-          wrappedComponentRef={this.saveFormRef}
-          onAddWidget={this.props.onAddWidget}
-          onClose={this.props.onClose}
-        />
+        {WidgetFormComponent &&
+          <WidgetFormComponent
+            wrappedComponentRef={this.saveFormRef}
+            onAddWidget={this.props.onAddWidget}
+            onClose={this.props.onClose}
+          />
+        }
       </Modal>
     );
   }

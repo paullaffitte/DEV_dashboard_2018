@@ -6,21 +6,27 @@ import { Button, Drawer } from 'antd';
 import Widget from '../components/Widget';
 import WidgetList from '../components/WidgetList';
 import WidgetForm from '../components/WidgetForm';
+import SubscribeServiceList from '../components/SubscribeServiceList';
 
 import './Dashboard.css';
 
 class Dashboard extends Component {
 	state = {
 		drawerIsOpen: false,
-		widgetFormOpen: null,
+		subscribeServiceIsOpen: false,
+		widgetFormIsOpen: null,
 	}
 
 	setWidgetForm = (name) => {
-		this.setState({ widgetFormOpen: name });
+		this.setState({ widgetFormIsOpen: name });
 	}
 
 	toggleDrawer = (isOpen) => {
 		this.setState({ drawerIsOpen: isOpen });
+	}
+
+	toggleSubscribeService = (isOpen) => {
+		this.setState({ subscribeServiceIsOpen: isOpen });
 	}
 
 	onAddWidget = (widget, config) => {
@@ -35,6 +41,7 @@ class Dashboard extends Component {
 		<div className="Drawer">
 			<WidgetList
 				onWidgetClick={this.setWidgetForm}
+				user={this.props.currentUser}
 			/>
 			<Button
 				style={{ marginTop: 16 }}
@@ -42,6 +49,12 @@ class Dashboard extends Component {
 				type="danger"
 			>
 				Logout
+			</Button>
+			<Button
+				style={{ marginTop: 16 }}
+				onClick={() => this.toggleSubscribeService(true)}
+			>
+				Subscribe services
 			</Button>
 		</div>
 	);
@@ -64,6 +77,7 @@ class Dashboard extends Component {
 							name={widget.name}
 							config={widget.config}
 							onRemove={this.onRemoveWidget}
+							user={this.props.currentUser}
 						/>
 					))}
 				</div>
@@ -78,9 +92,14 @@ class Dashboard extends Component {
           {this.Sidebar}
         </Drawer>
 				<WidgetForm
-					widget={this.state.widgetFormOpen}
+					widget={this.state.widgetFormIsOpen}
 					onAddWidget={this.onAddWidget}
 					onClose={() => this.setWidgetForm(null)}
+				/>
+				<SubscribeServiceList
+					isOpen={this.state.subscribeServiceIsOpen}
+					user={this.props.currentUser}
+					onClose={() => this.toggleSubscribeService(false)}
 				/>
 			</div>
 		);
