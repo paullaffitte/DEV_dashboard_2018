@@ -9,6 +9,12 @@ const ActionsTypes = keyMirror({
   LOGIN: null,
   LOGOUT: null,
   CREATE_USER: null,
+
+  // Widgets
+  ADD_WIDGET: null,
+  ADD_WIDGET_SUCCESS: null,
+  REMOVE_WIDGET: null,
+  REMOVE_WIDGET_SUCCESS: null,
 });
 
 export default ActionsTypes;

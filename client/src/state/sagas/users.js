@@ -28,7 +28,6 @@ const getCurrentUser = function* () {
 }
 
 const login = function* (action) {
-  console.log('try login', action.payload);
   yield call(fetchCurrentUser, {
     strategy: 'local',
     email: action.payload.email,

@@ -1,10 +1,12 @@
 import app from './app';
 import users from './users';
+import widgets from './widgets';
 import initialState from '../initialState';
 
 const reducersMap = {
   ...app,
   ...users,
+  ...widgets,
   leaveStateUnchanged: state => state,
 };
 

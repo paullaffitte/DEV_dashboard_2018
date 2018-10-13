@@ -10,6 +10,7 @@
     "deepmerge": "^2.1.0",
     "immutability-helper": "^2.7.0",
     "key-mirror": "^1.0.1",
+    "openweather-apis": "^3.3.5",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
@@ -18,8 +19,8 @@
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
-    "rmc-drawer": "^0.4.11",
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "^2.1.1",
+    "uniqid": "^5.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
