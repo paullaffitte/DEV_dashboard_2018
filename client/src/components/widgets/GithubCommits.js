@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Icon, Input, List} from 'antd';
 import GitHub from 'github-api';
+import './Github.css';
 
 class GithubCommits extends Component {
 
@@ -33,11 +34,12 @@ class GithubCommits extends Component {
 
   render() {
     return (
-      <List
-        bordered
-        dataSource={this.state.data}
-        renderItem={item => (<List.Item>{item.commit.message}</List.Item>)}
-      />
+      <div className='scrollable'>
+        <List
+          dataSource={this.state.data}
+          renderItem={item => (<List.Item>{item.commit.message}</List.Item>)}
+        />
+      </div>
     );
   }
 }

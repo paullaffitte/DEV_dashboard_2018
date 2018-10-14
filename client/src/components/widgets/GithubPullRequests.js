@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Icon, Input, List} from 'antd';
 import GitHub from 'github-api';
+import './Github.css';
 
 class GithubPullRequests extends Component {
 
@@ -33,11 +34,12 @@ class GithubPullRequests extends Component {
 
   render() {
     return (
-      <List
-        bordered
-        dataSource={this.state.data}
-        renderItem={item => (<List.Item>{item.title}</List.Item>)}
-      />
+      <div className='scrollable'>
+        <List
+          dataSource={this.state.data}
+          renderItem={item => (<List.Item>{item.title}</List.Item>)}
+        />
+      </div>
     );
   }
 }

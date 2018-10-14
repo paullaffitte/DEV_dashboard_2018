@@ -1,0 +1,8 @@
+.scrollable {
+	max-height: 300px;
+	overflow: scroll;
+}
+
+.scrollable::-webkit-scrollbar {
+	display: none
+}
