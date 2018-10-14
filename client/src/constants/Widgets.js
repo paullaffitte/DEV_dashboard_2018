@@ -18,7 +18,7 @@ const Widgets = {
     component: GithubCommits,
     form: GithubCommitsForm,
     name: 'Commits',
-    desc: 'Affiche les derniers commits d\'un repository',
+    desc: 'Affiche les commits d\'un repository',
     title: config => `${config.repository} - Commits`,
   },
   github_issues: {
@@ -34,7 +34,7 @@ const Widgets = {
     component: GithubPullRequests,
     form: GithubPullRequestsForm,
     name: 'Pull Requests',
-    desc: 'Affiche les PR d\'un repository',
+    desc: 'Affiche les pull requests d\'un repository',
     title: config => `${config.repository} - Pull Requests`,
   }
 };

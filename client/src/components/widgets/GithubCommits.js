@@ -16,7 +16,6 @@ class GithubCommits extends Component {
   }
 
   async update() {
-    console.log((await this.issue.listCommits()).data)
     try {
       this.setState({
         data: (await this.issue.listCommits()).data.map((e, idx) => ({...e, key: idx}))

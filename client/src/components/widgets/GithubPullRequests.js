@@ -16,7 +16,6 @@ class GithubPullRequests extends Component {
   }
 
   async update() {
-    console.log('pre', await this.pr.listPullRequests())
     try {
       this.setState({
         data: (await this.pr.listPullRequests()).data.map((e, idx) => ({...e, key: idx}))
