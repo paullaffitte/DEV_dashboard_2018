@@ -18,7 +18,9 @@ class GithubIssues extends Component {
   async update() {
     try {
       this.setState({
-        data: (await this.issue.listIssues()).data.map((e, idx) => ({...e, key: idx}))
+        data: (await this.issue.listIssues()).data
+          .map((e, idx) => ({...e, key: idx}))
+          .filter(e => !e.pull_request)
       });
     } catch (e) {
       this.setState({
