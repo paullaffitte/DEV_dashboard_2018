@@ -16,10 +16,16 @@ module.exports = function (app) {
       config: { type: Schema.Types.Mixed },
     }],
 
-    auth0Id: { type: String },
+    // auth0Id: { type: String },
+
     googleId: { type: String },
+    google: { type: Object },
+
     facebookId: { type: String },
+    facebook: { type: Object },
+
     githubId: { type: String },
+    github: { type: Object },
 
   }, {
     timestamps: true

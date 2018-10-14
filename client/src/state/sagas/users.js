@@ -12,6 +12,7 @@ import feathersClient from '../../services/feathersClient';
 const fetchCurrentUser = function* (options = {}) {
   try {
     // yield put(ActionCreators.apiLoading(true));
+    console.log('options', options);
     const response = yield call(feathersClient.authenticate, options);
     const payload = yield feathersClient.passport.verifyJWT(response.accessToken);
     const user = yield feathersClient.service('users').get(payload.userId);

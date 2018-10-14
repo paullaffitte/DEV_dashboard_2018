@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button } from 'antd';
+import Globals from '../constants/Globals';
 
 class LoginForm extends Component {
   handleSubmit = (event) => {
@@ -34,6 +35,7 @@ class LoginForm extends Component {
         <Button type='primary' htmlType='submit' className='login-form-button' size='large' >
           Log in
         </Button>
+        <a href={Globals.API_URL + '/auth/github'}>Login With Github</a>
       </Form>
     );
   }

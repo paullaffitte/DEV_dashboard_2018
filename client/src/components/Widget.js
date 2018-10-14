@@ -23,6 +23,7 @@ class Widget extends Component {
       >
         <WidgetComponent
           config={this.props.config}
+          user={this.props.user}
         />
       </Card>
     );
@@ -34,6 +35,7 @@ Widget.propTypes = {
   name: PropTypes.string,
   config: PropTypes.object,
   onRemove: PropTypes.func,
+  user: PropTypes.object,
 };
 
 export default Widget;

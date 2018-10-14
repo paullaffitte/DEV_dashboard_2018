@@ -7,6 +7,9 @@ const GoogleStrategy = require('passport-google-oauth20');
 const FacebookStrategy = require('passport-facebook');
 const GithubStrategy = require('passport-github');
 
+const AuthVerifier = require('./verifiers/AuthVerifier');
+
+
 module.exports = function (app) {
   const config = app.get('authentication');
 
@@ -32,7 +35,8 @@ module.exports = function (app) {
 
   app.configure(oauth2(Object.assign({
     name: 'github',
-    Strategy: GithubStrategy
+    Strategy: GithubStrategy,
+    Verifier: AuthVerifier,
   }, config.github)));
 
   // The `authentication` service is used to create a JWT.
