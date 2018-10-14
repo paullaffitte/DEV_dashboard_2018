@@ -9,6 +9,7 @@
     "antd": "^3.10.0",
     "cookie-storage": "^3.2.0",
     "deepmerge": "^2.1.0",
+    "github-api": "^3.0.0",
     "immutability-helper": "^2.7.0",
     "key-mirror": "^1.0.1",
     "openweather-apis": "^3.3.5",

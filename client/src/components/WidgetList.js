@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Button } from 'antd'
+import React, {Component} from 'react';
+import {Button} from 'antd'
 import PropTypes from 'prop-types';
 
 import Widgets from '../constants/Widgets';
@@ -21,12 +21,12 @@ class WidgetList extends Component {
 
           return (
             <div className="WidgetList__service" key={serviceIt}>
-              <div style={{ paddingBottom: 8 }}>
+              <div style={{paddingBottom: 8}}>
                 <img
-                  style={{ width: 20, marginRight: 4 }}
+                  style={{width: 20, marginRight: 4}}
                   src={service.icon}
                 />
-                <span style={{ fontWeight: 'bold' }}>{service.name}</span>
+                <span style={{fontWeight: 'bold'}}>{service.name}</span>
               </div>
               {Object.keys(Widgets).map((widgetKey, widgetIt) => {
                 const widget = Widgets[widgetKey];
@@ -37,8 +37,9 @@ class WidgetList extends Component {
                   <Button
                     onClick={() => this.props.onWidgetClick(widgetKey)}
                     key={widgetIt}
+                    style={{marginBottom: 5}}
                   >
-                    <span style={{ fontWeight: 'bold' }}>{widget.name}</span>
+                    <span style={{fontWeight: 'bold'}}>{widget.name}</span>
                     <span> - {widget.desc}</span>
                   </Button>
                 )
