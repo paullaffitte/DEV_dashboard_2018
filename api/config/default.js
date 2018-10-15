@@ -1,4 +1,4 @@
-{
+let config = {
   "host": "localhost",
   "port": 3030,
   "public": "../public/",
@@ -87,5 +87,7 @@
       "secure": false
     }
   },
-  "mongodb": "mongodb://localhost:27017/dashboard"
+  "mongodb": `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/dashboard?authSource=admin`
 }
+
+module.exports = config;
