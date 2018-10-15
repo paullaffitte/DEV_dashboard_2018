@@ -6,9 +6,11 @@ services:
       context: ../client
       dockerfile: ./docker/Dockerfile
     ports:
-      - '3210:80'
+      - '80:80'
 
   api:
+    environment:
+      - NODE_ENV=production
     env_file:
       - environment/db.prod.env
 

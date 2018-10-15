@@ -4,7 +4,7 @@ services:
   client:
     image: node:8.12-alpine
     ports:
-      - '3210:3000'
+      - '3000:3000'
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
@@ -14,13 +14,14 @@ services:
       - '../client:/app'
 
   api:
+    environment:
+      - NODE_ENV=development
     env_file:
       - environment/db.dev.env
 
   mongo:
     env_file:
       - environment/mongo.dev.env
-
 
   mongo-express:
     image: mongo-express
