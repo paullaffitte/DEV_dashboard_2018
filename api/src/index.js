@@ -1,15 +1,13 @@
 /* eslint-disable no-console */
+const fs = require('fs');
+const https  = require('https');
 const logger = require('winston');
 const app = require('./app');
-const port = app.get('port');
-const server = app.listen(port);
 
-console.log(app.get('host'), port);
+const server = https.createServer({
+  key: fs.readFileSync('../dashboardHTTPS/server.key'),
+  cert: fs.readFileSync('../dashboardHTTPS/server.csr')
+}, app).listen(3030);
 
-process.on('unhandledRejection', (reason, p) =>
-  logger.error('Unhandled Rejection at: Promise ', p, reason)
-);
-
-server.on('listening', () =>
-  logger.info('Feathers application started on http://%s:%d', app.get('host'), port)
-);
+// Call app.setup to initialize all services and SocketIO
+app.setup(server);
