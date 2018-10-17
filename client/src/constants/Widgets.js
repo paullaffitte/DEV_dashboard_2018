@@ -3,6 +3,7 @@ import GithubCommits, {GithubCommitsForm} from '../components/widgets/GithubComm
 import GithubIssues, {GithubIssuesForm} from '../components/widgets/GithubIssues';
 import GithubPullRequests, {GithubPullRequestsForm} from '../components/widgets/GithubPullRequests';
 import DataAtWorkJobs, {DataAtWorkJobsForm} from '../components/widgets/DataAtWorkJobs';
+import DataAtWorkSkills, {DataAtWorkSkillsForm} from '../components/widgets/DataAtWorkSkills';
 
 const Widgets = {
   // Display weather for a given city
@@ -45,6 +46,14 @@ const Widgets = {
     name: 'Emplois',
     desc: 'Affiche des emplois relatif à une compétence',
     title: 'DataAtWork - Emplois',
+  },
+  dataatwork_skills: {
+    service: 'dataatwork',
+    component: DataAtWorkSkills,
+    form: DataAtWorkSkillsForm,
+    name: 'Compétences',
+    desc: 'Affiche des compétence relatif à une emplois',
+    title: 'DataAtWork - Compétences',
   }
 };
 

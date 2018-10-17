@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Form, Icon, Input, InputNumber, List} from 'antd';
 import Axios from 'axios';
 
-class DataAtWorkJobs extends Component {
+class DataAtWorkSkills extends Component {
 
   state = {
     data: []
@@ -14,12 +14,12 @@ class DataAtWorkJobs extends Component {
 
   async update() {
     try {
-      let skill = (await Axios.get('http://api.dataatwork.org/v1/skills/autocomplete', { params: {contains: this.props.config.skill} })).data.pop();
-      if (!skill)
-        throw new Error(`No skill found with name "${this.props.config.skill}".`);
+      let job = (await Axios.get('http://api.dataatwork.org/v1/jobs/autocomplete', { params: {contains: this.props.config.job} })).data.pop();
+      if (!job)
+        throw new Error(`No job found with name "${this.props.config.job}".`);
 
       this.setState({
-        data: (await Axios.get(`http://api.dataatwork.org/v1/skills/${skill.uuid}/related_jobs`)).data.jobs
+        data: (await Axios.get(`http://api.dataatwork.org/v1/jobs/${job.uuid}/related_skills`)).data.skills
       });
     } catch (e) {
       console.error(e);
@@ -32,23 +32,23 @@ class DataAtWorkJobs extends Component {
       <div className='scrollable'>
         <List
           dataSource={this.state.data}
-          renderItem={item => (<List.Item>{item.job_title}</List.Item>)}
+          renderItem={item => (<List.Item>{item.skill_name}</List.Item>)}
         />
       </div>
     );
   }
 }
 
-class __DataAtWorkJobsForm extends Component {
+class __DataAtWorkSkillsForm extends Component {
   render() {
     const {getFieldDecorator} = this.props.form;
     return (
       <Form style={{textAlign: 'right'}}>
         <Form.Item>
-          {getFieldDecorator('skill', {
+          {getFieldDecorator('job', {
             rules: [{required: true, message: 'Please enter something.'}],
           })(
-            <Input prefix={<Icon type="book" />} placeholder='english language / originality / mathematics / ...' />
+            <Input prefix={<Icon type="book" />} placeholder='physicist / engineer / commercial / ...' />
           )}
         </Form.Item>
       </Form>
@@ -56,10 +56,10 @@ class __DataAtWorkJobsForm extends Component {
   }
 }
 
-const DataAtWorkJobsForm = Form.create()(__DataAtWorkJobsForm);
+const DataAtWorkSkillsForm = Form.create()(__DataAtWorkSkillsForm);
 
 export {
-  DataAtWorkJobsForm,
+  DataAtWorkSkillsForm,
 };
 
-export default DataAtWorkJobs;
+export default DataAtWorkSkills;
