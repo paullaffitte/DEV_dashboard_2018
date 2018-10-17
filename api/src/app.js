@@ -23,6 +23,8 @@ const proxy = require('http-proxy-middleware');
 
 const app = express(feathers());
 
+process.on('uncaughtException', err => {console.error(err.stack)});
+
 // const logger = new (winston.Logger)({
 //     transports: [
 //         new winston.transports.File({
@@ -54,6 +56,10 @@ app.use('/twitter', proxy({
 
 // Host the public folder
 app.use('/', express.static(app.get('public')));
+app.use((req, res, next) => {
+  console.log(req.url);
+  next();
+});
 
 // Set up Plugins and providers
 app.configure(express.rest());
