@@ -2,6 +2,7 @@ import WeatherCity, {WeatherCityForm} from '../components/widgets/WeatherCity';
 import GithubCommits, {GithubCommitsForm} from '../components/widgets/GithubCommits';
 import GithubIssues, {GithubIssuesForm} from '../components/widgets/GithubIssues';
 import GithubPullRequests, {GithubPullRequestsForm} from '../components/widgets/GithubPullRequests';
+import DataAtWorkJobs, {DataAtWorkJobsForm} from '../components/widgets/DataAtWorkJobs';
 
 const Widgets = {
   // Display weather for a given city
@@ -36,6 +37,14 @@ const Widgets = {
     name: 'Pull Requests',
     desc: 'Affiche les pull requests d\'un repository',
     title: config => `${config.repository} - Pull Requests`,
+  },
+  dataatwork_jobs: {
+    service: 'dataatwork',
+    component: DataAtWorkJobs,
+    form: DataAtWorkJobsForm,
+    name: 'Emplois',
+    desc: 'Affiche des emplois relatif à une compétence',
+    title: 'DataAtWork - Emplois',
   }
 };
 

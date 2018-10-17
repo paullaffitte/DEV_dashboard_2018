@@ -12,6 +12,10 @@ const Services = {
     isValid: user => user.github && user.github.accessToken,
     subscribeUrl: Globals.API_URL + '/auth/github',
   },
+  dataatwork: {
+    icon: 'http://dataatwork.org/favicon.ico',
+    name: 'Data at work',
+  },
 };
 
 export default Services;
