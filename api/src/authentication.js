@@ -6,6 +6,8 @@ const Auth0Strategy = require('passport-auth0');
 const GoogleStrategy = require('passport-google-oauth20');
 const FacebookStrategy = require('passport-facebook');
 const GithubStrategy = require('passport-github');
+// const SteamStrategy = require('passport-steam');
+// const StackExchangeStrategy = require('passport-stack-exchange');
 
 const AuthVerifier = require('./verifiers/AuthVerifier');
 
@@ -38,6 +40,12 @@ module.exports = function (app) {
     Strategy: GithubStrategy,
     Verifier: AuthVerifier,
   }, config.github)));
+
+  // app.configure(oauth2(Object.assign({
+  //   name: 'stackoverflow',
+  //   Strategy: StackExchangeStrategy,
+  //   Verifier: AuthVerifier,
+  // }, config.stackoverflow)));
 
   // The `authentication` service is used to create a JWT.
   // The before `create` hook registers strategies that can be used

@@ -36,7 +36,16 @@ const Widgets = {
     name: 'Pull Requests',
     desc: 'Affiche les pull requests d\'un repository',
     title: config => `${config.repository} - Pull Requests`,
-  }
+  },
+  // steam_test: {
+  //   service: 'steam',
+  //   component: GithubPullRequests,
+  //   form: GithubPullRequestsForm,
+  //   name: 'Test',
+  //   desc: 'Affiche les dernières vidéos d\'un producteur',
+  //   title: config => 'test',
+  //   config: config => ({...config}),
+  // },
 };
 
 export default Widgets;
