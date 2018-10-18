@@ -19,6 +19,7 @@ const channels = require('./channels');
 const authentication = require('./authentication');
 
 const mongoose = require('./mongoose');
+const proxy = require('http-proxy-middleware');
 
 const app = express(feathers());
 
@@ -41,6 +42,9 @@ app.use(compress());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
+
+app.use('/loripsum', proxy({target: 'https://loripsum.net/api', changeOrigin: true}));
+
 // Host the public folder
 app.use('/', express.static(app.get('public')));
 
