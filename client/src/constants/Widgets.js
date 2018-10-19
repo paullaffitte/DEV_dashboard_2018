@@ -8,6 +8,7 @@ import MinecraftForm from '../components/widgets/MinecraftForm';
 import MinecraftBanner from '../components/widgets/MinecraftBanner';
 import MinecraftStatus from '../components/widgets/MinecraftStatus';
 import Loripsum, {LoripsumForm} from '../components/widgets/Loripsum';
+import LastFMArtistTopTracks, {LastFMArtistTopTracksForm} from '../components/widgets/LastFMArtistTopTracks';
 
 const Widgets = {
   // Display weather for a given city
@@ -17,7 +18,7 @@ const Widgets = {
     form: WeatherCityForm,
     name: 'Weather City',
     desc: 'Affiche la météo d\'une ville donnée',
-    title: config => (`Météo ${config.city}`),
+    title: config => (`Météo capitalize(${config.city})`),
   },
   github_commits: {
     service: 'github',
@@ -82,7 +83,15 @@ const Widgets = {
     name: 'Generator',
     desc: 'Génère des lorem ipsum',
     title: config => `Lorem ipsum`,
-  }
+  },
+  lastfm_artistTopTracks: {
+    service: 'lastfm',
+    component: LastFMArtistTopTracks,
+    form: LastFMArtistTopTracksForm,
+    name: 'Top tracks',
+    desc: 'Top tracks d\'un artiste',
+    title: config => `${config.artist} - Top tracks`,
+  },
 };
 
 export default Widgets;
