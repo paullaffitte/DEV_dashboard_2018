@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Divider, Form, Icon, Input, Button } from 'antd';
+import React, {Component} from 'react';
+import {Divider, Form, Icon, Input, Button} from 'antd';
 import Globals from '../constants/Globals';
 import './LoginForm.css';
 
@@ -22,19 +22,19 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const {getFieldDecorator} = this.props.form;
     return (
       <Form className="LoginForm" onSubmit={this.handleSubmit} style={{textAlign: 'right'}}>
         <Form.Item>
           {getFieldDecorator('email', {
-            rules: [{ required: true, message: 'Please input your email!' }],
+            rules: [{required: true, message: 'Please input your email!'}],
           })(
             <Input prefix={<Icon type='user' />} placeholder='Email' />
           )}
         </Form.Item>
         <Form.Item>
           {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
+            rules: [{required: true, message: 'Please input your Password!'}],
           })(
             <Input prefix={<Icon type='lock' />} type='password' placeholder='Password' />
           )}
@@ -44,7 +44,7 @@ class LoginForm extends Component {
         <Button className="LoginForm__loginButton github" onClick={this.logTo('github')} icon="github" type="primary" block size='large'>Login with Github</Button>
         <Button className="LoginForm__loginButton facebook" onClick={this.logTo('facebook')} icon="facebook" type="primary" block size='large'>Login with Facebook</Button>
         <Button className="LoginForm__loginButton google" onClick={this.logTo('google')} icon="google" type="primary" block size='large'>Login with Google</Button>
-
+        <Button className="LoginForm__loginButton twitter" onClick={this.logTo('twitter')} icon="twitter" type="primary" block size='large'>Login with Twitter</Button>
       </Form>
     );
   }

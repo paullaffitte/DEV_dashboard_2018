@@ -2,34 +2,34 @@
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
-module.exports = function (app) {
+module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
   const Schema = mongooseClient.Schema;
   const users = new Schema({
 
-    email: {type: String, unique: true},
-    password: { type: String },
+    email: {type: String},
+    password: {type: String},
 
     widgets: [{
-      id: { type: String, unique: true, required: true },
-      name: { type: String },
-      config: { type: Schema.Types.Mixed },
+      id: {type: String, required: true},
+      name: {type: String},
+      config: {type: Schema.Types.Mixed},
     }],
 
     // auth0Id: { type: String },
 
-    googleId: { type: String },
-    google: { type: Object },
+    googleId: {type: String},
+    google: {type: Object},
 
-    facebookId: { type: String },
-    facebook: { type: Object },
+    facebookId: {type: String},
+    facebook: {type: Object},
 
-    githubId: { type: String },
-    github: { type: Object },
+    githubId: {type: String},
+    github: {type: Object},
 
   }, {
-    timestamps: true
-  });
+      timestamps: true
+    });
 
   return mongooseClient.model('users', users);
 };

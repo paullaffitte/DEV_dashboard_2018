@@ -72,6 +72,14 @@
       "callbackURL": "https://localhost:3030/auth/github/callback",
       "scope": "user public_repo repo gist"
     },
+    "twitter": {
+      "clientID": "bcbc2948f4d726eb367d",
+      "clientSecret": "fdcfdc5e0491b5e6bf48c1ee2b60fe15d313335c",
+      "consumerKey": "MbKILJQzXv7qnH3M6Ekmyo7Ni",
+      "consumerSecret": "KCo6yvAHXidTKJtnyXE5GDtBmZkttJGilK4rL6LMExyJYPoprX",
+      "successRedirect": "https://localhost:3000/",
+      "callbackURL": "https://localhost:3030/auth/twitter/callback"
+    },
     "cookie": {
       "enabled": true,
       "name": "feathers-jwt",
