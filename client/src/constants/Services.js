@@ -16,6 +16,10 @@ const Services = {
     icon: 'http://dataatwork.org/favicon.ico',
     name: 'Data at work',
   },
+  minecraft: {
+    icon: 'https://minecraft.net/android-icon-192x192.png',
+    name: 'Minecraft',
+  },
 };
 
 export default Services;

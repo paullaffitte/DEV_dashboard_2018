@@ -4,6 +4,9 @@ import GithubIssues, {GithubIssuesForm} from '../components/widgets/GithubIssues
 import GithubPullRequests, {GithubPullRequestsForm} from '../components/widgets/GithubPullRequests';
 import DataAtWorkJobs, {DataAtWorkJobsForm} from '../components/widgets/DataAtWorkJobs';
 import DataAtWorkSkills, {DataAtWorkSkillsForm} from '../components/widgets/DataAtWorkSkills';
+import MinecraftForm from '../components/widgets/MinecraftForm';
+import MinecraftBanner from '../components/widgets/MinecraftBanner';
+import MinecraftStatus from '../components/widgets/MinecraftStatus';
 
 const Widgets = {
   // Display weather for a given city
@@ -54,7 +57,23 @@ const Widgets = {
     name: 'Compétences',
     desc: 'Affiche des compétence relatif à une emplois',
     title: 'DataAtWork - Compétences',
-  }
+  },
+  minecraft_banner: {
+    service: 'minecraft',
+    component: MinecraftBanner,
+    form: MinecraftForm,
+    name: 'Bannière',
+    desc: 'Affiche la bannière d\'un serveur',
+    title: config => `${config.serverUrl} - Bannière`,
+  },
+  minecraft_status: {
+    service: 'minecraft',
+    component: MinecraftStatus,
+    form: MinecraftForm,
+    name: 'Status',
+    desc: 'Affiche le status d\'un serveur',
+    title: config => `${config.serverUrl} - Status`,
+  },
 };
 
 export default Widgets;
