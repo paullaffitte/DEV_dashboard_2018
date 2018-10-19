@@ -24,6 +24,11 @@ const Services = {
     icon: 'https://loripsum.net/favicon/favicon.ico',
     name: 'loripsum',
   },
+  lastfm: {
+    icon: 'https://cdn.last.fm/flatness/favicon.2.ico',
+    name: 'LastFM',
+    apiKey: '0a31018bd7823695d298fbf503de993e',
+  },
 };
 
 export default Services;
