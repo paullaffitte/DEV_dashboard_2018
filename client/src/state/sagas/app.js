@@ -1,12 +1,5 @@
-import {
-  call,
-  put,
-  select,
-  takeEvery,
-  takeLatest,
-} from 'redux-saga/effects';
+import {takeLatest} from 'redux-saga/effects';
 import ActionsTypes from '../../constants/ActionsTypes';
-import ActionCreators from '../actions';
 
 const setupApp = function* () {
 

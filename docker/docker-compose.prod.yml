@@ -1,16 +1,16 @@
 version: '3.5'
 
 services:
-  client:
-    build:
-      context: ../client
-      dockerfile: ./docker/Dockerfile
-    ports:
-      - '3210:80'
+  # client:
+  #   build:
+  #     context: ../client
+  #     dockerfile: ./docker/Dockerfile
+  #   ports:
+  #     - '3210:80'
 
-  api:
-    env_file:
-      - environment/db.prod.env
+  # api:
+  #   env_file:
+  #     - environment/db.prod.env
 
   mongo:
     env_file:

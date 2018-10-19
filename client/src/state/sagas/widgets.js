@@ -1,9 +1,7 @@
 import {
-  call,
   put,
   select,
   takeEvery,
-  takeLatest,
 } from 'redux-saga/effects';
 import uniqid from 'uniqid';
 import ActionsTypes from '../../constants/ActionsTypes';
@@ -25,11 +23,11 @@ const addWidget = function* (action) {
   try {
     // yield put(ActionCreators.apiLoading(true));
     let updated = yield feathersClient.service('users').patch(userId, values);
-    updated = updated.widgets.find(w => w.id == id);
+    updated = updated.widgets.find(w => w.id === id);
     yield put(ActionCreators.addWidgetSuccess(updated));
     // yield put(ActionCreators.apiLoading(false));
   } catch (error) {
-    console.log(error);
+    console.error(error);
     // yield put(ActionCreators.apiError(error));
   }
 };
@@ -39,12 +37,12 @@ const removeWidget = function* (action) {
   try {
     // yield put(ActionCreators.apiLoading(true));
     yield feathersClient.service('users').patch(userId, {
-      $pull: { widgets: { id: action.payload.id }},
+      $pull: {widgets: {id: action.payload.id}},
     });
     yield put(ActionCreators.removeWidgetSuccess(action.payload.id));
     // yield put(ActionCreators.apiLoading(false));
   } catch (error) {
-    console.log(error);
+    console.error(error);
     // yield put(ActionCreators.apiError(error));
   }
 };
