@@ -3,12 +3,12 @@ import {Form, Icon, Input, List} from 'antd';
 import LastFM from '../../services/LastFM';
 import LastFMArtistForm from './LastFMArtistForm'
 
-class LastFMArtistTopTracks extends Component {
+class LastFMArtistTopTags extends Component {
 
   state = {
     data: {
-      toptracks: {
-        track: []
+      toptags: {
+        tag: []
       }
     }
   }
@@ -19,7 +19,7 @@ class LastFMArtistTopTracks extends Component {
 
   async update() {
     try {
-      this.setState((await LastFM('artist.gettoptracks', {
+      this.setState((await LastFM('artist.gettoptags', {
         artist: this.props.config.artist.toLowerCase()
       })));
     } catch (e) {
@@ -32,17 +32,15 @@ class LastFMArtistTopTracks extends Component {
     return (
       <div className='scrollable'>
         <List
-          dataSource={this.state.data.toptracks.track}
+          dataSource={this.state.data.toptags.tag}
           renderItem={item => (
             <List.Item>
               <table>
                 <tbody>
                   <tr>
-                    <td><img src={item.image.filter(i => i.size == 'medium').pop()['#text']}/></td>
-                    <td>{item.name}</td>
+                    <td style={{width: 150}}><a href={item.url}>{item.name}</a></td>
                   </tr>
-                  <tr><td>Playcount</td><td>{item.playcount}</td></tr>
-                  <tr><td>Listeners</td><td>{item.listeners}</td></tr>
+                  <tr><td>Score</td><td>{item.count}</td></tr>
                 </tbody>
               </table>
             </List.Item>
@@ -53,4 +51,4 @@ class LastFMArtistTopTracks extends Component {
   }
 }
 
-export default LastFMArtistTopTracks;
+export default LastFMArtistTopTags;

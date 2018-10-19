@@ -3,12 +3,12 @@ import {Form, Icon, Input, List} from 'antd';
 import LastFM from '../../services/LastFM';
 import LastFMArtistForm from './LastFMArtistForm'
 
-class LastFMArtistTopTracks extends Component {
+class LastFMArtistTopAlbums extends Component {
 
   state = {
     data: {
-      toptracks: {
-        track: []
+      topalbums: {
+        album: []
       }
     }
   }
@@ -19,7 +19,7 @@ class LastFMArtistTopTracks extends Component {
 
   async update() {
     try {
-      this.setState((await LastFM('artist.gettoptracks', {
+      this.setState((await LastFM('artist.gettopalbums', {
         artist: this.props.config.artist.toLowerCase()
       })));
     } catch (e) {
@@ -32,7 +32,7 @@ class LastFMArtistTopTracks extends Component {
     return (
       <div className='scrollable'>
         <List
-          dataSource={this.state.data.toptracks.track}
+          dataSource={this.state.data.topalbums.album}
           renderItem={item => (
             <List.Item>
               <table>
@@ -42,7 +42,6 @@ class LastFMArtistTopTracks extends Component {
                     <td>{item.name}</td>
                   </tr>
                   <tr><td>Playcount</td><td>{item.playcount}</td></tr>
-                  <tr><td>Listeners</td><td>{item.listeners}</td></tr>
                 </tbody>
               </table>
             </List.Item>
@@ -53,4 +52,4 @@ class LastFMArtistTopTracks extends Component {
   }
 }
 
-export default LastFMArtistTopTracks;
+export default LastFMArtistTopAlbums;
