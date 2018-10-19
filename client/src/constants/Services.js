@@ -20,6 +20,10 @@ const Services = {
     icon: 'https://minecraft.net/android-icon-192x192.png',
     name: 'Minecraft',
   },
+  loripsum: {
+    icon: 'https://loripsum.net/favicon/favicon.ico',
+    name: 'loripsum',
+  },
 };
 
 export default Services;

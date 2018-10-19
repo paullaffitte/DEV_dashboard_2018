@@ -7,6 +7,7 @@ import DataAtWorkSkills, {DataAtWorkSkillsForm} from '../components/widgets/Data
 import MinecraftForm from '../components/widgets/MinecraftForm';
 import MinecraftBanner from '../components/widgets/MinecraftBanner';
 import MinecraftStatus from '../components/widgets/MinecraftStatus';
+import Loripsum, {LoripsumForm} from '../components/widgets/Loripsum';
 
 const Widgets = {
   // Display weather for a given city
@@ -74,6 +75,14 @@ const Widgets = {
     desc: 'Affiche le status d\'un serveur',
     title: config => `${config.serverUrl} - Status`,
   },
+  loripsum: {
+    service: 'loripsum',
+    component: Loripsum,
+    form: LoripsumForm,
+    name: 'Generator',
+    desc: 'Génère des lorem ipsum',
+    title: config => `Lorem ipsum`,
+  }
 };
 
 export default Widgets;

@@ -43,6 +43,7 @@
     "cors": "^2.8.4",
     "feathers-mongoose": "^6.2.0",
     "helmet": "^3.13.0",
+    "http-proxy-middleware": "^0.19.0",
     "mongoose": "^5.3.1",
     "passport-auth0": "^1.0.0",
     "passport-facebook": "^2.1.1",
