@@ -13,10 +13,10 @@ class GithubIssues extends Component {
     this.issue = new GitHub({
       token: this.props.user.github.accessToken
     }).getIssues(this.props.config.repository);
-    this.update();
+    this.props.setChildRef(this);
   }
 
-  async update() {
+  update = async () => {
     try {
       this.setState({
         data: (await this.issue.listIssues()).data

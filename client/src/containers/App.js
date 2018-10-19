@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
-import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import ActionCreators from '../state/actions';
-import { getIsSetup } from '../state/selectors';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import './App.css';
@@ -22,14 +21,14 @@ class App extends Component {
 			<Router>
 				<span>
 					<Switch>
-						<Route path="/" exact component={Dashboard}/>
-						<Redirect to="/"/>
+						<Route path="/" exact component={Dashboard} />
+						<Redirect to="/" />
 					</Switch>
 				</span>
 			</Router>
 		) : (
-			<Login />
-		);
+				<Login />
+			);
 	}
 }
 

@@ -1,7 +1,6 @@
 import {
   call,
   put,
-  select,
   takeEvery,
   takeLatest,
 } from 'redux-saga/effects';
@@ -12,14 +11,13 @@ import feathersClient from '../../services/feathersClient';
 const fetchCurrentUser = function* (options = {}) {
   try {
     // yield put(ActionCreators.apiLoading(true));
-    console.log('options', options);
     const response = yield call(feathersClient.authenticate, options);
     const payload = yield feathersClient.passport.verifyJWT(response.accessToken);
     const user = yield feathersClient.service('users').get(payload.userId);
     yield put(ActionCreators.getCurrentUserSuccess(user));
     // yield put(ActionCreators.apiLoading(false));
   } catch (error) {
-    console.log(error);
+    console.error(error);
     // yield put(ActionCreators.apiError(error));
   }
 }
@@ -40,11 +38,11 @@ const createUser = function* (action) {
   const user = action.payload.user || {};
   try {
     // yield put(ActionCreators.apiLoading(true));
-    const created = yield feathersClient.service('users').create(user);
+    yield feathersClient.service('users').create(user);
     yield put(ActionCreators.login(user.email, user.password));
     // yield put(ActionCreators.apiLoading(false));
   } catch (error) {
-    console.log(error);
+    console.error(error);
     // yield put(ActionCreators.apiLoading(false));
     // yield put(ActionCreators.apiError(error));
   }

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Modal } from 'antd'
+import React, {Component} from 'react';
+import {Modal, Icon, Input, Divider} from 'antd'
 import PropTypes from 'prop-types';
 
 import Widgets from '../constants/Widgets';
@@ -18,14 +18,20 @@ class WidgetForm extends Component {
       }
 
       form.resetFields();
-      this.props.onAddWidget(this.props.widget, values);
+      this.props.onAddWidget(this.props.widget, {
+        ...values,
+        refreshInterval: this.refreshInterval * 1000
+      });
       this.props.onClose();
     });
   }
 
+  refreshIntervalChanged = rate => {
+    this.refreshInterval = rate.target.value;
+  }
+
   render() {
     const widget = Widgets[this.props.widget];
-    console.log(widget);
     const WidgetFormComponent = widget && widget.form;
     let title = 'Configure ' + (widget && widget.name);
 
@@ -43,6 +49,8 @@ class WidgetForm extends Component {
             onClose={this.props.onClose}
           />
         }
+        <Divider></Divider>
+        <Input onChange={this.refreshIntervalChanged} prefix={<Icon type='clock-circle' />} placeholder='5' />
       </Modal>
     );
   }

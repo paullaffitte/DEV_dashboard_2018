@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Alert } from 'antd';
+import React, {Component} from 'react';
+import {Form, Icon, Input} from 'antd';
 import weather from 'openweather-apis';
 import Services from '../../constants/Services';
 
-const icons = {
-  sun: 'https://ssl.gstatic.com/onebox/weather/64/sunny.png',
-  cloud: 'https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png',
-  rain: 'https://ssl.gstatic.com/onebox/weather/64/rain_light.png',
-  heavy: 'https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png',
-};
+// const icons = {
+//   sun: 'https://ssl.gstatic.com/onebox/weather/64/sunny.png',
+//   cloud: 'https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png',
+//   rain: 'https://ssl.gstatic.com/onebox/weather/64/rain_light.png',
+//   heavy: 'https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png',
+// };
 
 class WeatherCity extends Component {
 
@@ -20,12 +20,12 @@ class WeatherCity extends Component {
   componentWillMount() {
     weather.setLang('fr');
     weather.setCity(this.props.config.city);
- 	  weather.setUnits('metric');
- 	  weather.setAPPID(Services.openWeatherMap.apiKey);
-    this.update();
+    weather.setUnits('metric');
+    weather.setAPPID(Services.openWeatherMap.apiKey);
+    this.props.setChildRef(this);
   }
 
-  update() {
+  update = () => {
     weather.getAllWeather((err, json) => {
       if (!err) {
         this.setState({
@@ -45,12 +45,12 @@ class WeatherCity extends Component {
 
 class __WeatherCityForm extends Component {
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const {getFieldDecorator} = this.props.form;
     return (
       <Form style={{textAlign: 'right'}}>
         <Form.Item>
           {getFieldDecorator('city', {
-            rules: [{ required: true, message: 'Please enter a city.' }],
+            rules: [{required: true, message: 'Please enter a city.'}],
           })(
             <Input prefix={<Icon type='environment' />} placeholder='City' />
           )}

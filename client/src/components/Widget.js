@@ -7,6 +7,16 @@ import Services from '../constants/Services';
 
 class Widget extends Component {
 
+  setChildRef = ref => {
+    this.widgetContent = ref;
+    this.widgetContent.update();
+    this.refresh = setInterval(this.widgetContent.update, this.props.config.refreshInterval || 5000);
+  };
+
+  componentWillUnmount() {
+    clearInterval(this.refresh);
+  }
+
   render() {
     const WidgetComponent = Widgets[this.props.name].component;
     const icon = Services[Widgets[this.props.name].service].icon;
@@ -35,6 +45,7 @@ class Widget extends Component {
         <WidgetComponent
           config={this.props.config}
           user={this.props.user}
+          setChildRef={this.setChildRef}
         />
       </Card>
     );

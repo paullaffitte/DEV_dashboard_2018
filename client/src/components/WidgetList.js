@@ -23,6 +23,7 @@ class WidgetList extends Component {
             <div className="WidgetList__service" key={serviceIt}>
               <div style={{paddingBottom: 8}}>
                 <img
+                  alt=''
                   style={{width: 20, marginRight: 4}}
                   src={service.icon}
                 />
@@ -30,7 +31,7 @@ class WidgetList extends Component {
               </div>
               {Object.keys(Widgets).map((widgetKey, widgetIt) => {
                 const widget = Widgets[widgetKey];
-                if (widget.service != serviceKey) {
+                if (widget.service !== serviceKey) {
                   return null;
                 }
                 return (

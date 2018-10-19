@@ -13,10 +13,10 @@ class GithubPullRequests extends Component {
     this.pr = new GitHub({
       token: this.props.user.github.accessToken
     }).getRepo(this.props.config.repository);
-    this.update();
+    this.props.setChildRef(this);
   }
 
-  async update() {
+  update = async () => {
     try {
       this.setState({
         data: (await this.pr.listPullRequests()).data.map((e, idx) => ({...e, key: idx}))

@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
-import { List, Button, Modal } from 'antd'
+import React, {Component} from 'react';
+import {List, Button, Modal} from 'antd'
 import PropTypes from 'prop-types';
-
-import Widgets from '../constants/Widgets';
 import Services from '../constants/Services';
-
-// import "./SubscribeServiceList.css";
 
 class SubscribeServiceList extends Component {
 
@@ -17,12 +13,13 @@ class SubscribeServiceList extends Component {
       <List.Item
         actions={!isValid && [<a href={service.subscribeUrl}>Subscribe</a>]}
       >
-        <div style={{ opacity: isValid ? 0.5 : 1 }}>
+        <div style={{opacity: isValid ? 0.5 : 1}}>
           <img
-            style={{ width: 20, height: 20, marginRight: 4 }}
+            alt=''
+            style={{width: 20, height: 20, marginRight: 4}}
             src={service.icon}
           />
-          <span style={{ fontWeight: 'bold' }}>{service.name}</span>
+          <span style={{fontWeight: 'bold'}}>{service.name}</span>
         </div>
       </List.Item>
     );
@@ -36,10 +33,10 @@ class SubscribeServiceList extends Component {
         onCancel={this.props.onClose}
         onOk={this.props.onClose}
         footer={[
-         <Button key="ok" type="primary" onClick={this.props.onClose}>
-           Ok
+          <Button key="ok" type="primary" onClick={this.props.onClose}>
+            Ok
          </Button>,
-       ]}
+        ]}
       >
         <div className="SubscribeServiceList">
           <List
