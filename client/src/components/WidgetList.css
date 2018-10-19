@@ -1,3 +1,7 @@
 .WidgetList__service {
 	margin-bottom: 16px;
 }
+
+.WidgetList__pad-rgt {
+	margin-right: 5px;
+}

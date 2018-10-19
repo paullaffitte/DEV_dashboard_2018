@@ -40,10 +40,17 @@ app.use(helmet());
 app.use(cors());
 app.use(compress());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 
 app.use('/loripsum', proxy({target: 'https://loripsum.net/api', changeOrigin: true}));
+app.use('/twitter', proxy({
+  target: 'https://api.twitter.com/1.1',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/twitter': '/'
+  },
+}));
 
 // Host the public folder
 app.use('/', express.static(app.get('public')));

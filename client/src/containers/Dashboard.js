@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux';
 import ActionCreators from '../state/actions';
-import { Button, Drawer } from 'antd';
+import {Button, Drawer} from 'antd';
 import Widget from '../components/Widget';
 import WidgetList from '../components/WidgetList';
 import WidgetForm from '../components/WidgetForm';
@@ -18,15 +18,15 @@ class Dashboard extends Component {
 	}
 
 	setWidgetForm = (name) => {
-		this.setState({ widgetFormIsOpen: name });
+		this.setState({widgetFormIsOpen: name});
 	}
 
 	toggleDrawer = (isOpen) => {
-		this.setState({ drawerIsOpen: isOpen });
+		this.setState({drawerIsOpen: isOpen});
 	}
 
 	toggleSubscribeService = (isOpen) => {
-		this.setState({ subscribeServiceIsOpen: isOpen });
+		this.setState({subscribeServiceIsOpen: isOpen});
 	}
 
 	onAddWidget = (widget, config) => {
@@ -44,17 +44,17 @@ class Dashboard extends Component {
 				user={this.props.currentUser}
 			/>
 			<Button
-				style={{ marginTop: 16 }}
+				style={{marginTop: 16, marginRight: 5}}
 				onClick={this.props.actions.logout}
 				type="danger"
 			>
 				Logout
 			</Button>
 			<Button
-				style={{ marginTop: 16 }}
+				style={{marginTop: 16}}
 				onClick={() => this.toggleSubscribeService(true)}
 			>
-				Subscribe services
+				Subscribe to services
 			</Button>
 		</div>
 	);
@@ -82,15 +82,15 @@ class Dashboard extends Component {
 					))}
 				</div>
 				<Drawer
-          title="Widgets"
-          placement="right"
-          closable={false}
+					title="Widgets"
+					placement="right"
+					closable={false}
 					width={420}
-          onClose={() => this.toggleDrawer(false)}
-          visible={this.state.drawerIsOpen}
-        >
-          {this.Sidebar}
-        </Drawer>
+					onClose={() => this.toggleDrawer(false)}
+					visible={this.state.drawerIsOpen}
+				>
+					{this.Sidebar}
+				</Drawer>
 				<WidgetForm
 					widget={this.state.widgetFormIsOpen}
 					onAddWidget={this.onAddWidget}

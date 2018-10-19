@@ -2,6 +2,7 @@ import WeatherCity, {WeatherCityForm} from '../components/widgets/WeatherCity';
 import GithubCommits, {GithubCommitsForm} from '../components/widgets/GithubCommits';
 import GithubIssues, {GithubIssuesForm} from '../components/widgets/GithubIssues';
 import GithubPullRequests, {GithubPullRequestsForm} from '../components/widgets/GithubPullRequests';
+import TwitterAccount, {TwitterAccountForm} from '../components/widgets/TwitterAccount';
 import DataAtWorkJobs, {DataAtWorkJobsForm} from '../components/widgets/DataAtWorkJobs';
 import DataAtWorkSkills, {DataAtWorkSkillsForm} from '../components/widgets/DataAtWorkSkills';
 import MinecraftForm from '../components/widgets/MinecraftForm';
@@ -43,6 +44,14 @@ const Widgets = {
     name: 'Pull Requests',
     desc: 'Affiche les pull requests d\'un repository',
     title: config => `${config.repository} - Pull Requests`,
+  },
+  twitter_tweets: {
+    service: 'twitter',
+    component: TwitterAccount,
+    form: TwitterAccountForm,
+    name: 'Compte',
+    desc: 'Affiche les tweets d\'un compte',
+    title: config => `${config.screenView} - Twitter`,
   },
   dataatwork_jobs: {
     service: 'dataatwork',

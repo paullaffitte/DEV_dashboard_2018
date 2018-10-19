@@ -27,6 +27,9 @@ module.exports = function(app) {
     githubId: {type: String},
     github: {type: Object},
 
+    twitterId: {type: String},
+    twitter: {type: Object},
+
   }, {
       timestamps: true
     });
