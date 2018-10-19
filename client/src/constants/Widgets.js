@@ -75,7 +75,6 @@ const Widgets = {
     desc: 'Affiche le status d\'un serveur',
     title: config => `${config.serverUrl} - Status`,
   },
-  },
   loripsum: {
     service: 'loripsum',
     component: Loripsum,
