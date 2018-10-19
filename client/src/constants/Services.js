@@ -12,6 +12,14 @@ const Services = {
     isValid: user => user.github && user.github.accessToken,
     subscribeUrl: Globals.API_URL + '/auth/github',
   },
+  twitter: {
+    icon: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/300px-Twitter_bird_logo_2012.svg.png',
+    name: 'Twitter',
+    isValid: user => user.twitter && user.twitter.accessToken,
+    subscribeUrl: Globals.API_URL + '/auth/twitter',
+    consumerKey: "MbKILJQzXv7qnH3M6Ekmyo7Ni",
+    consumerSecret: "KCo6yvAHXidTKJtnyXE5GDtBmZkttJGilK4rL6LMExyJYPoprX",
+  },
   dataatwork: {
     icon: 'http://dataatwork.org/favicon.ico',
     name: 'Data at work',

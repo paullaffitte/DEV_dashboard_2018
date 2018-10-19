@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
-import { Card, Tabs} from 'antd';
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux';
+import {Card, Tabs} from 'antd';
 import ActionCreators from '../state/actions';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
@@ -23,21 +23,21 @@ class Login extends Component {
 	render() {
 		return (
 			<div className='Login'>
-        <Card hoverable>
+				<Card hoverable>
 					<Tabs defaultActiveKey="1">
 						<Tabs.TabPane tab="Login" key="1">
 							<LoginForm
 								onLogin={this.onLogin}
 							/>
 						</Tabs.TabPane>
-    				<Tabs.TabPane tab="Signup" key="2">
+						<Tabs.TabPane tab="Signup" key="2">
 							<SignupForm
 								onSignup={this.onSignup}
 							/>
 						</Tabs.TabPane>
-  				</Tabs>,
-        </Card>
-      </div>
+					</Tabs>
+				</Card>
+			</div>
 		);
 	}
 }

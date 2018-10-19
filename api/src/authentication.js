@@ -6,11 +6,12 @@ const Auth0Strategy = require('passport-auth0');
 const GoogleStrategy = require('passport-google-oauth20');
 const FacebookStrategy = require('passport-facebook');
 const GithubStrategy = require('passport-github');
+const TwitterStrategy = require('passport-twitter');
 
 const AuthVerifier = require('./verifiers/AuthVerifier');
 
 
-module.exports = function (app) {
+module.exports = function(app) {
   const config = app.get('authentication');
 
   // Set up authentication with the secret
@@ -39,6 +40,12 @@ module.exports = function (app) {
     Strategy: GithubStrategy,
     Verifier: AuthVerifier,
   }, config.github)));
+
+  app.configure(oauth2(Object.assign({
+    name: 'twitter',
+    Strategy: TwitterStrategy,
+    Verifier: AuthVerifier,
+  }, config.twitter)));
 
   // The `authentication` service is used to create a JWT.
   // The before `create` hook registers strategies that can be used
