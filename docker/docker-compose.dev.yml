@@ -19,9 +19,9 @@ services:
     env_file:
       - environment/db.dev.env
 
-  # mongo:
-  #   env_file:
-  #     - environment/mongo.dev.env
+  mongo:
+    env_file:
+      - environment/mongo.dev.env
 
   mongo-express:
     image: mongo-express

@@ -1,8 +1,8 @@
 version: '3.5'
 
 services:
-  # client:
-  #   restart: unless-stopped
+  client:
+    restart: unless-stopped
 
   api:
     image: node:8.12-alpine
@@ -19,9 +19,9 @@ services:
     image: mongo:4.0-xenial
     ports:
       - 27017:27017
-    # volumes:
-    #   - db:/data/db
+    volumes:
+      - db:/data/db
     restart: unless-stopped
 
-# volumes:
-#   db: ~
+volumes:
+  db: ~
