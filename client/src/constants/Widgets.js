@@ -9,6 +9,8 @@ import MinecraftBanner from '../components/widgets/MinecraftBanner';
 import MinecraftStatus from '../components/widgets/MinecraftStatus';
 import Loripsum, {LoripsumForm} from '../components/widgets/Loripsum';
 import LastFMArtistTopTracks, {LastFMArtistTopTracksForm} from '../components/widgets/LastFMArtistTopTracks';
+import LastFMArtistTopAlbums, {LastFMArtistTopAlbumsForm} from '../components/widgets/LastFMArtistTopAlbums';
+import LastFMArtistForm from '../components/widgets/LastFMArtistForm';
 
 const Widgets = {
   // Display weather for a given city
@@ -87,10 +89,18 @@ const Widgets = {
   lastfm_artistTopTracks: {
     service: 'lastfm',
     component: LastFMArtistTopTracks,
-    form: LastFMArtistTopTracksForm,
+    form: LastFMArtistForm,
     name: 'Top tracks',
     desc: 'Top tracks d\'un artiste',
     title: config => `${config.artist} - Top tracks`,
+  },
+  lastfm_artistTopAlbums: {
+    service: 'lastfm',
+    component: LastFMArtistTopAlbums,
+    form: LastFMArtistForm,
+    name: 'Top albums',
+    desc: 'Top albums d\'un artiste',
+    title: config => `${config.artist} - Top albums`,
   },
 };
 
