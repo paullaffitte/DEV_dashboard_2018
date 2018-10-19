@@ -12,6 +12,7 @@ services:
     working_dir: /app
     volumes:
       - '../api:/app'
+      - '../dashboardHTTPS:/dashboardHTTPS'
     restart: unless-stopped
 
   mongo:

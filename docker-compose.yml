@@ -14,6 +14,7 @@ services:
     restart: unless-stopped
     volumes:
     - ./api:/app:rw
+    - ./dashboardHTTPS:/dashboardHTTPS:rw
     working_dir: /app
   client:
     command: yarn start
