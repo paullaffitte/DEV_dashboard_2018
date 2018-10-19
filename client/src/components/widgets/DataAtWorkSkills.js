@@ -14,12 +14,12 @@ class DataAtWorkSkills extends Component {
 
   async update() {
     try {
-      let job = (await Axios.get('http://api.dataatwork.org/v1/jobs/autocomplete', { params: {contains: this.props.config.job} })).data.pop();
+      let job = (await Axios.get('https://api.dataatwork.org/v1/jobs/autocomplete', { params: {contains: this.props.config.job} })).data.pop();
       if (!job)
         throw new Error(`No job found with name "${this.props.config.job}".`);
 
       this.setState({
-        data: (await Axios.get(`http://api.dataatwork.org/v1/jobs/${job.uuid}/related_skills`)).data.skills
+        data: (await Axios.get(`https://api.dataatwork.org/v1/jobs/${job.uuid}/related_skills`)).data.skills
       });
     } catch (e) {
       console.error(e);

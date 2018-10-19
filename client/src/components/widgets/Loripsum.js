@@ -36,9 +36,6 @@ class Loripsum extends Component {
       ];
 
       let optionsPath = options.filter(x => x).join('/');
-      console.log('options', options);
-      console.log('filtered', options.filter(x => x));
-      console.log('joined', '"' + optionsPath + '"');
       this.setState((await Axios.get(`${Globals.API_URL}/loripsum/${optionsPath}`)));
     } catch (e) {
       console.error(e);
