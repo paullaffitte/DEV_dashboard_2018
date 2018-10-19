@@ -30,7 +30,8 @@ module.exports = function (app) {
 
   app.configure(oauth2(Object.assign({
     name: 'facebook',
-    Strategy: FacebookStrategy
+    Strategy: FacebookStrategy,
+    Verifier: AuthVerifier,
   }, config.facebook)));
 
   app.configure(oauth2(Object.assign({

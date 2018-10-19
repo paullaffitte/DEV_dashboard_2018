@@ -44,9 +44,10 @@
       ]
     },
     "facebook": {
-      "clientID": "your facebook client id",
-      "clientSecret": "your facebook client secret",
-      "successRedirect": "/",
+      "clientID": "300824330755936",
+      "clientSecret": "b8aabb4e2acd085c955523fe27f3fb9f",
+      "successRedirect": "https://localhost:3000/",
+      "callbackURL": "https://localhost:3030/auth/facebook/callback",
       "scope": [
         "public_profile",
         "email"
@@ -67,7 +68,8 @@
     "github": {
       "clientID": "bcbc2948f4d726eb367d",
       "clientSecret": "fdcfdc5e0491b5e6bf48c1ee2b60fe15d313335c",
-      "successRedirect": "http://localhost:3000/",
+      "successRedirect": "https://localhost:3000/",
+      "callbackURL": "https://localhost:3030/auth/github/callback",
       "scope": "user public_repo repo gist"
     },
     "cookie": {

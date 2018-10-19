@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button } from 'antd';
+import { Divider, Form, Icon, Input, Button } from 'antd';
 import Globals from '../constants/Globals';
+import './LoginForm.css';
 
 class LoginForm extends Component {
   handleSubmit = (event) => {
@@ -14,10 +15,16 @@ class LoginForm extends Component {
     });
   }
 
+  logTo = (service) => {
+    return () => {
+      window.location.href = Globals.API_URL + '/auth/' + service;
+    };
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form onSubmit={this.handleSubmit} style={{textAlign: 'right'}}>
+      <Form className="LoginForm" onSubmit={this.handleSubmit} style={{textAlign: 'right'}}>
         <Form.Item>
           {getFieldDecorator('email', {
             rules: [{ required: true, message: 'Please input your email!' }],
@@ -32,10 +39,12 @@ class LoginForm extends Component {
             <Input prefix={<Icon type='lock' />} type='password' placeholder='Password' />
           )}
         </Form.Item>
-        <Button type='primary' htmlType='submit' className='login-form-button' size='large' >
-          Log in
-        </Button>
-        <a href={Globals.API_URL + '/auth/github'}>Login With Github</a>
+        <Button className="" type='primary' htmlType='submit' block size='large'>Log in</Button>
+        <Divider />
+        <Button className="LoginForm__loginButton github" onClick={this.logTo('github')} icon="github" type="primary" block size='large'>Login with Github</Button>
+        <Button className="LoginForm__loginButton facebook" onClick={this.logTo('facebook')} icon="facebook" type="primary" block size='large'>Login with Facebook</Button>
+        <Button className="LoginForm__loginButton google" onClick={this.logTo('google')} icon="google" type="primary" block size='large'>Login with Google</Button>
+
       </Form>
     );
   }
