@@ -7,6 +7,7 @@ const GoogleStrategy = require('passport-google-oauth20');
 const FacebookStrategy = require('passport-facebook');
 const GithubStrategy = require('passport-github');
 const TwitterStrategy = require('passport-twitter');
+const TrelloStrategy = require('passport-trello').Strategy;
 
 const AuthVerifier = require('./verifiers/AuthVerifier');
 
@@ -46,6 +47,12 @@ module.exports = function(app) {
     Strategy: TwitterStrategy,
     Verifier: AuthVerifier,
   }, config.twitter)));
+
+  app.configure(oauth2(Object.assign({
+    name: 'trello',
+    Strategy: TrelloStrategy,
+    Verifier: AuthVerifier,
+  }, config.trello)));
 
   // The `authentication` service is used to create a JWT.
   // The before `create` hook registers strategies that can be used

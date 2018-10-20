@@ -30,6 +30,9 @@ module.exports = function(app) {
     twitterId: {type: String},
     twitter: {type: Object},
 
+    trelloId: {type: String},
+    trello: {type: Object},
+
   }, {
       timestamps: true
     });
