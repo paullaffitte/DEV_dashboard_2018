@@ -16,6 +16,8 @@ import LastFMArtistForm from '../components/widgets/LastFMArtistForm';
 import TrelloColumn, {TrelloColumnForm} from '../components/widgets/TrelloColumn';
 import TrelloAssigned, {TrelloAssignedForm} from '../components/widgets/TrelloAssigned';
 import TrelloMine, {TrelloMineForm} from '../components/widgets/TrelloMine';
+import TrelloLists, {TrelloListsForm} from '../components/widgets/TrelloLists';
+import TrelloBoard, {TrelloBoardForm} from '../components/widgets/TrelloBoard';
 
 const Widgets = {
   // Display weather for a given city
@@ -146,6 +148,22 @@ const Widgets = {
     name: 'Mes cartes',
     desc: 'Affiche les cartes assignées a moi-même',
     title: 'Mes cartes - Trello',
+  },
+  trello_lists: {
+    service: 'trello',
+    component: TrelloLists,
+    form: TrelloListsForm,
+    name: 'Listes',
+    desc: 'Affiche les listes d\'un tableau',
+    title: 'Listes - Trello',
+  },
+  trello_board: {
+    service: 'trello',
+    component: TrelloBoard,
+    form: TrelloBoardForm,
+    name: 'Tableau',
+    desc: 'Affiche les cartes d\'un tableau',
+    title: 'Tableau - Trello',
   },
 };
 
