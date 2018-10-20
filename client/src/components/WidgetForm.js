@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Modal, Icon, Input, Divider} from 'antd'
+import {Modal, Icon, Input, Divider, Button} from 'antd'
 import PropTypes from 'prop-types';
 
 import Widgets from '../constants/Widgets';
@@ -30,6 +30,11 @@ class WidgetForm extends Component {
     this.refreshInterval = rate.target.value;
   }
 
+  widgetWasRemoved = () => {
+    this.props.onRemoveWidget(this.props.widgetId);
+    this.props.onClose();
+  }
+
   render() {
     const widget = Widgets[this.props.widget];
     const WidgetFormComponent = widget && widget.form;
@@ -41,6 +46,13 @@ class WidgetForm extends Component {
         visible={!!this.props.widget}
         onCancel={this.props.onClose}
         onOk={this.validateForm}
+        footer={[
+          this.props.widgetId ? <Button key='remove' type='danger' onClick={this.widgetWasRemoved}>Remove widget</Button> : <a key='remove'></a>,
+          <Button key='back' onClick={this.props.onClose}>Cancel</Button>,
+          <Button key='submit' type='primary' onClick={this.validateForm}>
+            OK
+          </Button>
+        ]}
       >
         {WidgetFormComponent &&
           <WidgetFormComponent

@@ -15,10 +15,14 @@ class Dashboard extends Component {
 		drawerIsOpen: false,
 		subscribeServiceIsOpen: false,
 		widgetFormIsOpen: null,
+		widgetFormIsEditing: null,
 	}
 
-	setWidgetForm = (name) => {
-		this.setState({widgetFormIsOpen: name});
+	setWidgetForm = (name, id) => {
+		this.setState({
+			widgetFormIsOpen: name,
+			widgetFormIsEditing: id
+		});
 	}
 
 	toggleDrawer = (isOpen) => {
@@ -30,6 +34,10 @@ class Dashboard extends Component {
 	}
 
 	onAddWidget = (widget, config) => {
+		if (this.state.widgetFormIsEditing) {
+			this.onRemoveWidget(this.state.widgetFormIsEditing)
+		}
+
 		this.props.actions.addWidget(widget, config);
 	}
 
@@ -76,7 +84,9 @@ class Dashboard extends Component {
 							id={widget.id}
 							name={widget.name}
 							config={widget.config}
-							onRemove={this.onRemoveWidget}
+							// onRemove={this.onRemoveWidget}
+							onWidgetClick={this.setWidgetForm}
+							onEditWidget={this.onEditWidget}
 							user={this.props.currentUser}
 						/>
 					))}
@@ -93,7 +103,9 @@ class Dashboard extends Component {
 				</Drawer>
 				<WidgetForm
 					widget={this.state.widgetFormIsOpen}
+					widgetId={this.state.widgetFormIsEditing}
 					onAddWidget={this.onAddWidget}
+					onRemoveWidget={this.onRemoveWidget}
 					onClose={() => this.setWidgetForm(null)}
 				/>
 				<SubscribeServiceList

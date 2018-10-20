@@ -40,7 +40,7 @@ class Widget extends Component {
         }
         className="Widget"
         style={{width: 'min-content'}}
-        extra={<Button style={{marginLeft: 16}} icon="close" onClick={() => this.props.onRemove(this.props.id)} />}
+        extra={<Button style={{marginLeft: 16}} icon="setting" onClick={() => this.props.onWidgetClick(this.props.name, this.props.id)} />}
       >
         <WidgetComponent
           config={this.props.config}
@@ -56,7 +56,7 @@ Widget.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   config: PropTypes.object,
-  onRemove: PropTypes.func,
+  onWidgetClick: PropTypes.func,
   user: PropTypes.object,
 };
 
