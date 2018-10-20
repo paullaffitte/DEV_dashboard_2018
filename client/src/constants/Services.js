@@ -50,6 +50,12 @@ const Services = {
     subscribe: Globals.API_URL + '/auth/trello',
     apiKey: '1e322c860ee55e5246e6b3f000b281d2',
   },
+  yammer: {
+    icon: 'https://www.tahawultech.com/wp-content/uploads/2012/08/Yammer.png',
+    name: 'Yammer',
+    isValid: user => user.yammer && user.yammer.accessToken,
+    subscribeUrl: Globals.API_URL + '/auth/yammer',
+  },
 };
 
 export default Services;

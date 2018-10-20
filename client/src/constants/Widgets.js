@@ -20,6 +20,7 @@ import TrelloLists, {TrelloListsForm} from '../components/widgets/TrelloLists';
 import TrelloBoard, {TrelloBoardForm} from '../components/widgets/TrelloBoard';
 import EpitechMessages, {EpitechMessagesForm} from '../components/widgets/EpitechMessages';
 import EpitechModule, {EpitechModuleForm} from '../components/widgets/EpitechModule';
+import YammerPosts, {YammerPostsForm} from '../components/widgets/YammerPosts';
 
 const Widgets = {
   // Display weather for a given city
@@ -232,6 +233,14 @@ const Widgets = {
     title: 'Module - Epitech Intra',
     w: 1,
     h: 1,
+  },
+  yammer_posts: {
+    service: 'yammer',
+    component: YammerPosts,
+    form: YammerPostsForm,
+    name: 'Groupe',
+    desc: 'Affiche les posts d\'un groupe',
+    title: 'Groupe - Yammer',
   },
 };
 

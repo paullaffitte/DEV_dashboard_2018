@@ -25,7 +25,9 @@
     "socket.io-client": "^2.1.1",
     "trello": "^0.9.0",
     "twitter": "^1.7.1",
-    "uniqid": "^5.0.3"
+    "uniqid": "^5.0.3",
+    "yammer": "^0.1.0",
+    "yammer-rest-api-client": "^0.2.12"
   },
   "scripts": {
     "start": "HTTPS=true react-scripts start",
