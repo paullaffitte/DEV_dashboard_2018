@@ -1,26 +1,27 @@
 version: '3.5'
 
 services:
-  # client:
-  #   image: node:8.12-alpine
-  #   ports:
-  #     - '3000:3000'
-  #   environment:
-  #     - NODE_ENV=development
-  #     - CHOKIDAR_USEPOLLING=true
-  #   command: yarn start
-  #   working_dir: /app
-  #   volumes:
-  #     - '../client:/app'
+  client:
+    image: node:8.12-alpine
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    command: yarn start
+    working_dir: /app
+    volumes:
+      - '../client:/app'
 
-  # api:
-  #   env_file:
-  #     - environment/db.dev.env
+  api:
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - environment/db.dev.env
 
-  # mongo:
-  #   env_file:
-  #     - environment/mongo.dev.env
-
+  mongo:
+    env_file:
+      - environment/mongo.dev.env
 
   mongo-express:
     image: mongo-express

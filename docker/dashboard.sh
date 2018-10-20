@@ -65,6 +65,9 @@ if [ "$1" == "target" ]; then
 elif [ "$1" == "re" ]; then
 	launch build ${@:2}
 	launch default
+elif [ "$1" == "build" ]; then
+	launch build ${@:2}
+	launch config | sed -r "s#$(pwd)#.#g" > docker-compose.yml
 elif [ "$1" == "" ]; then
 	launch default
 else

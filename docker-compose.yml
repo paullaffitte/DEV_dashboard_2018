@@ -1,0 +1,55 @@
+services:
+  api:
+    command: yarn start
+    environment:
+      DB_HOST: mongo
+      DB_PASSWORD: dev
+      DB_PORT: '27017'
+      DB_USERNAME: admin
+      NODE_ENV: development
+    image: node:8.12-alpine
+    ports:
+    - published: 3030
+      target: 3030
+    restart: unless-stopped
+    volumes:
+    - ./api:/app:rw
+    - ./dashboardHTTPS:/dashboardHTTPS:rw
+    working_dir: /app
+  client:
+    command: yarn start
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+      NODE_ENV: development
+    image: node:8.12-alpine
+    ports:
+    - published: 3000
+      target: 3000
+    restart: unless-stopped
+    volumes:
+    - ./client:/app:rw
+    working_dir: /app
+  mongo:
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD: dev
+      MONGO_INITDB_ROOT_USERNAME: admin
+    image: mongo:4.0-xenial
+    ports:
+    - published: 27017
+      target: 27017
+    restart: unless-stopped
+    volumes:
+    - db:/data/db:rw
+  mongo-express:
+    environment:
+      ME_CONFIG_MONGODB_ADMINPASSWORD: dev
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+    image: mongo-express
+    ports:
+    - published: 27018
+      target: 8081
+    restart: unless-stopped
+version: '3.5'
+volumes:
+  db: {}
+
