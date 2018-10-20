@@ -50,12 +50,12 @@ class Dashboard extends Component {
 			>
 				Logout
 			</Button>
-			<Button
+			{/* <Button
 				style={{marginTop: 16}}
 				onClick={() => this.toggleSubscribeService(true)}
 			>
 				Subscribe to services
-			</Button>
+			</Button> */}
 		</div>
 	);
 

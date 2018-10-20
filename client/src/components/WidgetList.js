@@ -14,10 +14,7 @@ class WidgetList extends Component {
       <div className="WidgetList">
         {Object.keys(Services).map((serviceKey, serviceIt) => {
           const service = Services[serviceKey];
-
-          if (service.isValid && !service.isValid(this.props.user)) {
-            return null;
-          }
+          const isValid = service.isValid === undefined || !!service.isValid(this.props.user);
 
           return (
             <div className="WidgetList__service" key={serviceIt}>
@@ -28,6 +25,7 @@ class WidgetList extends Component {
                   src={service.icon}
                 />
                 <span style={{fontWeight: 'bold'}}>{service.name}</span>
+                {isValid || <a style={{float: 'right'}} href={service.subscribeUrl}>Link account</a>}
               </div>
               {Object.keys(Widgets).map((widgetKey, widgetIt) => {
                 const widget = Widgets[widgetKey];
@@ -39,6 +37,7 @@ class WidgetList extends Component {
                     onClick={() => this.props.onWidgetClick(widgetKey)}
                     key={widgetIt}
                     style={{marginBottom: 5}}
+                    disabled={!isValid}
                   >
                     <span style={{fontWeight: 'bold'}}>{widget.name}</span>
                     <span> - {widget.desc}</span>
