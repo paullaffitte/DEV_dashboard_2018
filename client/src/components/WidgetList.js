@@ -25,7 +25,7 @@ class WidgetList extends Component {
                   src={service.icon}
                 />
                 <span style={{fontWeight: 'bold'}}>{service.name}</span>
-                {isValid || <a style={{float: 'right'}} href={service.subscribeUrl}>Link account</a>}
+                {isValid || <a style={{float: 'right'}} href={service.subscribeUrl}>Subscribe</a>}
               </div>
               {Object.keys(Widgets).map((widgetKey, widgetIt) => {
                 const widget = Widgets[widgetKey];
