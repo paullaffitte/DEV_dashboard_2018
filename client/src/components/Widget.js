@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
-import {Card, Button} from 'antd'
+import {Card, Button, Icon} from 'antd'
 import PropTypes from 'prop-types';
+
+import WidgetForm from './WidgetForm';
 
 import Widgets from '../constants/Widgets';
 import Services from '../constants/Services';
 
+import './Widget.css';
+
 class Widget extends Component {
 
   state = {
-    title: ''
-  };
+    title: '',
+		widgetFormIsOpen: false,
+	}
 
   setChildRef = ref => {
     this.widgetContent = ref;
@@ -25,6 +30,26 @@ class Widget extends Component {
 
   componentWillUnmount() {
     clearInterval(this.refresh);
+	}
+
+
+  componentDidUpdate(prevProps) {
+    if (JSON.stringify(this.props.config) !== JSON.stringify(prevProps.config)) {
+      this.widgetContent && this.widgetContent.update();
+    }
+  }
+
+  toggleWidgetForm = (isOpen) => {
+    this.setState({ widgetFormIsOpen: isOpen });
+  }
+
+  onUpdate = (_, values) => {
+    this.props.onUpdate(this.props.id, values);
+  }
+
+  onDelete = () => {
+    this.toggleWidgetForm(false);
+    this.props.onRemove(this.props.id);
   }
 
   render() {
@@ -37,28 +62,35 @@ class Widget extends Component {
     }
 
     return (
-      <Card
-        title={
-          <span>
-            <img
-              alt=''
-              style={{width: 20, marginRight: 4}}
-              src={icon}
-            />
-            {this.state.title || title}
-          </span>
-        }
+      <div
         className="Widget"
-        style={{width: 'min-content'}}
-        extra={<Button style={{marginLeft: 16}} icon="close" onClick={() => this.props.onRemove(this.props.id)} />}
       >
-        <WidgetComponent
-          config={this.props.config}
-          user={this.props.user}
-          setChildRef={this.setChildRef}
-          onTitleUpdate={this.updateTitle}
+        <div className="Widget--title">
+          <img
+            alt=''
+            style={{width: 20, height: 20, marginRight: 4}}
+            src={icon}
+          />
+          <h3>{title}</h3>
+        </div>
+        <div className="Widget--body">
+          <WidgetComponent
+            config={this.props.config}
+            user={this.props.user}
+            setChildRef={this.setChildRef}
+          />
+        </div>
+        <div className="Widget--extra">
+          <Icon className="button" type="setting" onClick={() => (this.setState({ widgetFormIsOpen: true }))} />
+        </div>
+        <WidgetForm
+          widget={this.state.widgetFormIsOpen && this.props.name}
+          onAddWidget={this.onUpdate}
+          onClose={() => this.toggleWidgetForm(null)}
+          onDelete={this.onDelete}
+          update={true}
         />
-      </Card>
+      </div>
     );
   }
 }
@@ -69,6 +101,7 @@ Widget.propTypes = {
   config: PropTypes.object,
   onRemove: PropTypes.func,
   onTitleUpdate: PropTypes.func,
+  onUpdate: PropTypes.func,
   user: PropTypes.object,
 };
 

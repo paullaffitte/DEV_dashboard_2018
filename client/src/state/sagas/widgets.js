@@ -32,6 +32,23 @@ const addWidget = function* (action) {
   }
 };
 
+const updateWidget = function* (action) {
+  const userId = yield select(state => state.app.currentUser._id);
+  const id = action.payload.id;
+  try {
+    // yield put(ActionCreators.apiLoading(true));
+    let updated = yield feathersClient.service('users').patch(
+      { "_id": userId, "widgets.id": id },
+      { $set: { "widgets.0.config": action.payload.config }},
+    );
+    yield put(ActionCreators.updateWidgetSuccess(id, action.payload.config));
+    // yield put(ActionCreators.apiLoading(false));
+  } catch (error) {
+    console.log(error);
+    // yield put(ActionCreators.apiError(error));
+  }
+};
+
 const removeWidget = function* (action) {
   const userId = yield select(state => state.app.currentUser._id);
   try {
@@ -50,6 +67,7 @@ const removeWidget = function* (action) {
 const sagas = function* () {
   yield takeEvery(ActionsTypes.ADD_WIDGET, addWidget);
   yield takeEvery(ActionsTypes.REMOVE_WIDGET, removeWidget);
+  yield takeEvery(ActionsTypes.UPDATE_WIDGET, updateWidget);
 };
 
 export default sagas;

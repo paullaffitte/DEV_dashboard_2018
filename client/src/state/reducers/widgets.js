@@ -27,6 +27,36 @@ const widgets = {
 			},
 		});
 	},
+	[ActionsTypes.UPDATE_WIDGET_SUCCESS]: (state, payload) => {
+		const index = state.app.currentUser.widgets.findIndex(w => w.id == payload.id);
+
+		return update(state, {
+			app: {
+				currentUser: {
+	        widgets: {
+						[index]: {
+							config: {$set: payload.config },
+						},
+	        },
+			  },
+		  },
+		});
+	},
+	[ActionsTypes.UPDATE_WIDGET_SUCCESS]: (state, payload) => {
+		const index = state.app.currentUser.widgets.findIndex(w => w.id == payload.id);
+
+		return update(state, {
+			app: {
+				currentUser: {
+	        widgets: {
+						[index]: {
+							config: {$set: payload.config },
+						},
+	        },
+			  },
+		  },
+		});
+	},
 };
 
 export default widgets;
