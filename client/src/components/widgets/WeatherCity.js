@@ -19,13 +19,13 @@ class WeatherCity extends Component {
 
   componentWillMount() {
     weather.setLang('fr');
-    weather.setCity(this.props.config.city);
     weather.setUnits('metric');
     weather.setAPPID(Services.openWeatherMap.apiKey);
     this.props.setChildRef(this);
   }
 
   update = () => {
+    weather.setCity(this.props.config.city);
     weather.getAllWeather((err, json) => {
       if (!err) {
         this.setState({

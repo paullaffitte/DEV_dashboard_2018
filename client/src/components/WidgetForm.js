@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Modal, Icon, Input, Divider} from 'antd'
+import React, { Component } from 'react';
+import { Modal, Button, Divider, Input, Icon } from 'antd'
 import PropTypes from 'prop-types';
 
 import Widgets from '../constants/Widgets';
@@ -33,7 +33,7 @@ class WidgetForm extends Component {
   render() {
     const widget = Widgets[this.props.widget];
     const WidgetFormComponent = widget && widget.form;
-    let title = 'Configure ' + (widget && widget.name);
+    let title = (this.props.update ? 'Update ' : 'Configure ') + (widget && widget.name);
 
     return (
       <Modal
@@ -49,8 +49,14 @@ class WidgetForm extends Component {
             onClose={this.props.onClose}
           />
         }
-        <Divider></Divider>
+        <Divider />
         <Input onChange={this.refreshIntervalChanged} prefix={<Icon type='clock-circle' />} placeholder='5' />
+        {this.props.update && (
+          <div>
+            <Divider />
+            <Button block type="danger" onClick={this.props.onDelete}>Remove widget</Button>
+          </div>
+        )}
       </Modal>
     );
   }
@@ -59,6 +65,8 @@ class WidgetForm extends Component {
 WidgetForm.propTypes = {
   name: PropTypes.string,
   config: PropTypes.object,
+  update: PropTypes.bool,
+  onDelete: PropTypes.func,
 };
 
 export default WidgetForm;

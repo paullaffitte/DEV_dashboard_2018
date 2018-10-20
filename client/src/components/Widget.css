@@ -1,0 +1,58 @@
+.Widget {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	background: white;
+	border-radius: 5px;
+	width: inherit;
+	border: 1px solid #e3e3e3;
+	box-shadow: 2px 2px 12px #00000021;
+}
+
+.react-grid-item {
+	display: flex;
+}
+
+.Widget--title {
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid #e3e3e3;
+	padding: 8px 16px;
+	width: inherit;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 42px;
+}
+
+.Widget--title img {
+	position: relative;
+	top: +2px;
+}
+
+.Widget--title h3 {
+	flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	margin-bottom: 0;
+}
+
+.Widget--extra {
+	display: flex;
+	flex: 1;
+	position: absolute;
+	top: 6px;
+	right: 6px;
+}
+
+.Widget--extra .button {
+	font-size: 10px;
+	cursor: pointer;
+}
+
+.Widget--body {
+	flex: 1;
+	padding: 8px 16px;
+	overflow: hidden;
+}

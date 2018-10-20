@@ -13,6 +13,8 @@ const ActionsTypes = keyMirror({
   // Widgets
   ADD_WIDGET: null,
   ADD_WIDGET_SUCCESS: null,
+  UPDATE_WIDGET: null,
+  UPDATE_WIDGET_SUCCESS: null,
   REMOVE_WIDGET: null,
   REMOVE_WIDGET_SUCCESS: null,
 });

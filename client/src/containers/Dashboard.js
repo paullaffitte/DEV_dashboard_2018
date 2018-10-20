@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 import ActionCreators from '../state/actions';
-import {Button, Drawer} from 'antd';
+import { Button, Drawer } from 'antd';
+import GridLayout from 'react-grid-layout';
 import Widget from '../components/Widget';
 import WidgetList from '../components/WidgetList';
 import WidgetForm from '../components/WidgetForm';
@@ -37,6 +38,40 @@ class Dashboard extends Component {
 		this.props.actions.removeWidget(id);
 	}
 
+	onUpdateWidget = (name, values) => {
+		this.props.actions.updateWidget(name, values);
+	}
+
+	getClientWidth = () => {
+		const w = window,
+	    d = document,
+	    e = d.documentElement,
+	    g = d.getElementsByTagName('body')[0],
+	    x = w.innerWidth || e.clientWidth || g.clientWidth;
+		return x;
+	}
+
+	renderWidgets() {
+		let x = 0, y = 0;
+		return this.props.widgets.map((widget, i) => {
+			x += 2;
+			return (
+				<div key={i}>
+					<Widget
+						data-grid={{i: i, x: x, y: 0, w: widget.w, h: widget.h}}
+						key={i}
+						id={widget.id}
+						name={widget.name}
+						config={widget.config}
+						onRemove={this.onRemoveWidget}
+						onUpdate={this.onUpdateWidget}
+						user={this.props.currentUser}
+					/>
+				</div>
+			);
+		});
+	}
+
 	Sidebar = (
 		<div className="Drawer">
 			<WidgetList
@@ -69,17 +104,11 @@ class Dashboard extends Component {
 						icon="plus"
 						size="large"
 						onClick={() => this.toggleDrawer(true)}
+						style={{ zIndex: 99 }}
 					/>
-					{this.props.widgets.map((widget, i) => (
-						<Widget
-							key={i}
-							id={widget.id}
-							name={widget.name}
-							config={widget.config}
-							onRemove={this.onRemoveWidget}
-							user={this.props.currentUser}
-						/>
-					))}
+					<GridLayout className="layout" cols={10} rowHeight={100} width={this.getClientWidth()}>
+						{this.renderWidgets()}
+					</GridLayout>
 				</div>
 				<Drawer
 					title="Widgets"
