@@ -72,6 +72,17 @@ let config = {
       "callbackURL": "https://localhost:3030/auth/github/callback",
       "scope": "user public_repo repo gist"
     },
+    "trello": {
+      "clientID": "1e322c860ee55e5246e6b3f000b281d2",
+      "clientSecret": "6c7f548278e96ee92300767b3312c9d170cc4cddf62384b8d5a4b066528e55d3",
+      "consumerKey": "1e322c860ee55e5246e6b3f000b281d2",
+      "consumerSecret": "6c7f548278e96ee92300767b3312c9d170cc4cddf62384b8d5a4b066528e55d3",
+      "successRedirect": "https://localhost:3000/",
+      "callbackURL": "https://localhost:3030/auth/trello/callback",
+      "trelloParams": {
+        "scope": "read"
+      }
+    },
     "twitter": {
       "clientID": "bcbc2948f4d726eb367d",
       "clientSecret": "fdcfdc5e0491b5e6bf48c1ee2b60fe15d313335c",

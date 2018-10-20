@@ -37,6 +37,13 @@ const Services = {
     name: 'LastFM',
     apiKey: '0a31018bd7823695d298fbf503de993e',
   },
+  trello: {
+    icon: 'https://slack-files2.s3-us-west-2.amazonaws.com/avatars/2016-05-18/44042585718_0e6a837d5b63fd1cfc07_512.png',
+    name: 'Trello',
+    isValid: user => user.trello && user.trello.accessToken,
+    subscribeUrl: Globals.API_URL + '/auth/trello',
+    apiKey: '1e322c860ee55e5246e6b3f000b281d2',
+  },
 };
 
 export default Services;
