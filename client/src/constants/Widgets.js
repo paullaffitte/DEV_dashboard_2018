@@ -14,6 +14,7 @@ import LastFMArtistTopAlbums, {LastFMArtistTopAlbumsForm} from '../components/wi
 import LastFMArtistTopTags, {LastFMArtistTopTagsForm} from '../components/widgets/LastFMArtistTopTags';
 import LastFMArtistForm from '../components/widgets/LastFMArtistForm';
 import TrelloColumn, {TrelloColumnForm} from '../components/widgets/TrelloColumn';
+import TrelloAssigned, {TrelloAssignedForm} from '../components/widgets/TrelloAssigned';
 
 const Widgets = {
   // Display weather for a given city
@@ -127,6 +128,14 @@ const Widgets = {
     form: TrelloColumnForm,
     name: 'Liste',
     desc: 'Affiche une liste de cartes',
+    title: 'Liste Trello',
+  },
+  trello_assigned: {
+    service: 'trello',
+    component: TrelloAssigned,
+    form: TrelloAssignedForm,
+    name: 'Assignées',
+    desc: 'Affiche les cartes assignées a un utilisateur',
     title: 'Liste Trello',
   },
 };

@@ -4,7 +4,7 @@ import Trello from 'trello';
 import Services from '../../constants/Services';
 import './Github.css';
 
-class TrelloColumn extends Component {
+class TrelloAssigned extends Component {
 
   state = {
     data: []
@@ -17,11 +17,10 @@ class TrelloColumn extends Component {
 
   update = async () => {
     this.setState({
-      data: (await this.client.getCardsOnList(this.props.config.listId)).map((e, idx) => ({...e, key: idx}))
-      // data: (await this.client.getMemberCards(this.props.user.trello.profile.id)).map((e, idx) => ({...e, key: idx}))      // data: (await this.client.getCardsOnList(this.props.config.listId)).map((e, idx) => ({...e, key: idx}))
+      data: (await this.client.getMemberCards(this.props.user.trello.profile.id)).map((e, idx) => ({...e, key: idx}))      // data: (await this.client.getCardsOnList(this.props.config.listId)).map((e, idx) => ({...e, key: idx}))
     });
-    const list = await this.client.makeRequest('get', `/1/lists/${this.props.config.listId}`);
-    this.props.onTitleUpdate(list.name + ' - Trello');
+    const user = await this.client.makeRequest('get', `/1/members/${this.props.user.trello.profile.id}`);
+    this.props.onTitleUpdate(user.fullName + ' - Trello');
   }
 
   render() {
@@ -36,16 +35,16 @@ class TrelloColumn extends Component {
   }
 }
 
-class __TrelloColumnForm extends Component {
+class __TrelloAssignedForm extends Component {
   render() {
     const {getFieldDecorator} = this.props.form;
     return (
       <Form style={{textAlign: 'right'}}>
         <Form.Item>
-          {getFieldDecorator('listId', {
+          {getFieldDecorator('memberId', {
             rules: [{required: true, message: 'Please enter something.'}],
           })(
-            <Input prefix={<Icon type="bars" theme="outlined" />} placeholder='5bae7b65aead282512100e6d' />
+            <Input prefix={<Icon type="user" theme="outlined" />} placeholder='5959f8bfae2ea5674a386fc2' />
           )}
         </Form.Item>
       </Form>
@@ -53,10 +52,10 @@ class __TrelloColumnForm extends Component {
   }
 }
 
-const TrelloColumnForm = Form.create()(__TrelloColumnForm);
+const TrelloAssignedForm = Form.create()(__TrelloAssignedForm);
 
 export {
-  TrelloColumnForm,
+  TrelloAssignedForm,
 };
 
-export default TrelloColumn;
+export default TrelloAssigned;
