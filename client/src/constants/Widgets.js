@@ -13,6 +13,7 @@ import LastFMArtistTopTracks, {LastFMArtistTopTracksForm} from '../components/wi
 import LastFMArtistTopAlbums, {LastFMArtistTopAlbumsForm} from '../components/widgets/LastFMArtistTopAlbums';
 import LastFMArtistTopTags, {LastFMArtistTopTagsForm} from '../components/widgets/LastFMArtistTopTags';
 import LastFMArtistForm from '../components/widgets/LastFMArtistForm';
+import TrelloColumn, {TrelloColumnForm} from '../components/widgets/TrelloColumn';
 
 const Widgets = {
   // Display weather for a given city
@@ -119,6 +120,14 @@ const Widgets = {
     name: 'Top tags',
     desc: 'Top tags d\'un artiste',
     title: config => `${config.artist} - Top tags`,
+  },
+  trello_column: {
+    service: 'trello',
+    component: TrelloColumn,
+    form: TrelloColumnForm,
+    name: 'Liste',
+    desc: 'Affiche une liste de cartes',
+    title: 'Liste Trello',
   },
 };
 

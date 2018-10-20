@@ -7,10 +7,20 @@ import Services from '../constants/Services';
 
 class Widget extends Component {
 
+  state = {
+    title: ''
+  };
+
   setChildRef = ref => {
     this.widgetContent = ref;
     this.widgetContent.update();
     this.refresh = setInterval(this.widgetContent.update, this.props.config.refreshInterval || 5000);
+  };
+
+  updateTitle = title => {
+    this.setState({
+      title: title
+    });
   };
 
   componentWillUnmount() {
@@ -35,7 +45,7 @@ class Widget extends Component {
               style={{width: 20, marginRight: 4}}
               src={icon}
             />
-            {title}
+            {this.state.title || title}
           </span>
         }
         className="Widget"
@@ -46,6 +56,7 @@ class Widget extends Component {
           config={this.props.config}
           user={this.props.user}
           setChildRef={this.setChildRef}
+          onTitleUpdate={this.updateTitle}
         />
       </Card>
     );
@@ -57,6 +68,7 @@ Widget.propTypes = {
   name: PropTypes.string,
   config: PropTypes.object,
   onRemove: PropTypes.func,
+  onTitleUpdate: PropTypes.func,
   user: PropTypes.object,
 };
 
