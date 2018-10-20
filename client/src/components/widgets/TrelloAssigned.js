@@ -17,9 +17,9 @@ class TrelloAssigned extends Component {
 
   update = async () => {
     this.setState({
-      data: (await this.client.getMemberCards(this.props.user.trello.profile.id)).map((e, idx) => ({...e, key: idx}))      // data: (await this.client.getCardsOnList(this.props.config.listId)).map((e, idx) => ({...e, key: idx}))
+      data: (await this.client.getMemberCards(this.props.config.userId)).map((e, idx) => ({...e, key: idx}))      // data: (await this.client.getCardsOnList(this.props.config.listId)).map((e, idx) => ({...e, key: idx}))
     });
-    const user = await this.client.makeRequest('get', `/1/members/${this.props.user.trello.profile.id}`);
+    const user = await this.client.makeRequest('get', `/1/members/${this.props.config.userId}`);
     this.props.onTitleUpdate(user.fullName + ' - Trello');
   }
 
