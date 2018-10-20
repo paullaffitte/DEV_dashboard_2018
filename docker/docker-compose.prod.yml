@@ -2,13 +2,12 @@ version: '3.5'
 
 services:
   client:
-    build:
-      context: ../client
-      dockerfile: ./docker/Dockerfile
+    environment:
+      - NODE_ENV=production
     ports:
       - '80:80'
 
-  api:
+  server:
     environment:
       - NODE_ENV=production
     env_file:

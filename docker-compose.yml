@@ -1,34 +1,15 @@
 services:
-  api:
-    command: yarn start
-    environment:
-      DB_HOST: mongo
-      DB_PASSWORD: dev
-      DB_PORT: '27017'
-      DB_USERNAME: admin
-      NODE_ENV: development
-    image: node:8.12-alpine
-    ports:
-    - published: 3030
-      target: 3030
-    restart: unless-stopped
-    volumes:
-    - ./api:/app:rw
-    - ./dashboardHTTPS:/dashboardHTTPS:rw
-    working_dir: /app
   client:
-    command: yarn start
+    build:
+      context: ./client
+      dockerfile: ./docker/Dockerfile
     environment:
       CHOKIDAR_USEPOLLING: "true"
       NODE_ENV: development
-    image: node:8.12-alpine
     ports:
     - published: 3000
-      target: 3000
+      target: 443
     restart: unless-stopped
-    volumes:
-    - ./client:/app:rw
-    working_dir: /app
   mongo:
     environment:
       MONGO_INITDB_ROOT_PASSWORD: dev
@@ -49,6 +30,28 @@ services:
     - published: 27018
       target: 8081
     restart: unless-stopped
+  server:
+    command: yarn start
+    environment:
+      API_URL: https://localhost:3030
+      CLIENT_URL: https://localhost:3000
+      CONSTANTS: /client/src/constants
+      DB_HOST: mongo
+      DB_PASSWORD: dev
+      DB_PORT: '27017'
+      DB_USERNAME: admin
+      NODE_ENV: development
+    image: node:8.12-alpine
+    ports:
+    - published: 3030
+      target: 3030
+    - published: 8080
+      target: 3030
+    restart: unless-stopped
+    volumes:
+    - ./api:/app:rw
+    - ./client/src:/client/src:rw
+    working_dir: /app
 version: '3.5'
 volumes:
   db: {}
