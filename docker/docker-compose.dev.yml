@@ -2,22 +2,18 @@ version: '3.5'
 
 services:
   client:
-    image: node:8.12-alpine
     ports:
-      - '3000:3000'
+      - '3000:443'
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
-    command: yarn start
-    working_dir: /app
-    volumes:
-      - '../client:/app'
 
-  api:
+  server:
     environment:
       - NODE_ENV=development
     env_file:
       - environment/db.dev.env
+      - environment/constants.dev.env
 
   mongo:
     env_file:

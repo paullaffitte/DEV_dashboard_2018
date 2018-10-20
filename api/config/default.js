@@ -46,8 +46,8 @@ let config = {
     "facebook": {
       "clientID": "300824330755936",
       "clientSecret": "b8aabb4e2acd085c955523fe27f3fb9f",
-      "successRedirect": "https://localhost:3000/",
-      "callbackURL": "https://localhost:3030/auth/facebook/callback",
+      "successRedirect": process.env.CLIENT_URL,
+      "callbackURL": `${process.env.API_URL}/auth/facebook/callback`,
       "scope": [
         "public_profile",
         "email"
@@ -68,8 +68,8 @@ let config = {
     "github": {
       "clientID": "bcbc2948f4d726eb367d",
       "clientSecret": "fdcfdc5e0491b5e6bf48c1ee2b60fe15d313335c",
-      "successRedirect": "https://localhost:3000/",
-      "callbackURL": "https://localhost:3030/auth/github/callback",
+      "successRedirect": process.env.CLIENT_URL,
+      "callbackURL": `${process.env.API_URL}/auth/github/callback`,
       "scope": "user public_repo repo gist"
     },
     "trello": {
@@ -88,8 +88,8 @@ let config = {
       "clientSecret": "fdcfdc5e0491b5e6bf48c1ee2b60fe15d313335c",
       "consumerKey": "MbKILJQzXv7qnH3M6Ekmyo7Ni",
       "consumerSecret": "KCo6yvAHXidTKJtnyXE5GDtBmZkttJGilK4rL6LMExyJYPoprX",
-      "successRedirect": "https://localhost:3000/",
-      "callbackURL": "https://localhost:3030/auth/twitter/callback"
+      "successRedirect": process.env.CLIENT_URL,
+      "callbackURL": `${process.env.API_URL}/auth/twitter/callback`
     },
     "cookie": {
       "enabled": true,

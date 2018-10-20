@@ -1,4 +1,5 @@
 const session = require('express-session');
+const about = require('../../config/about');
 
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app) {
@@ -12,4 +13,8 @@ module.exports = function(app) {
       secure: true
     }
   }));
+
+  app.get('/about.json', (req, res) => {
+    res.send(about);
+  });
 };
