@@ -42,7 +42,6 @@ class App extends Component {
 
     componentDidMount() {
         this.props.actions.getCurrentUser();
-        console.log(!localStorage.getItem('tourDone'));
     }
 
     render() {
@@ -53,10 +52,7 @@ class App extends Component {
                 <span>
                     <Dashboard
                         ref={c => this.dashboardRef = c }
-                        redoTour={async () => {
-                            await this.setState({run: true});
-                            console.table(this.state);
-                        }}/>
+                        redoTour={ () => this.setState({run: true}) }/>
                     <Joyride
                         steps={steps}
                         run={run}
