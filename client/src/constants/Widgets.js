@@ -20,6 +20,9 @@ import TrelloLists, {TrelloListsForm} from '../components/widgets/TrelloLists';
 import TrelloBoard, {TrelloBoardForm} from '../components/widgets/TrelloBoard';
 import EpitechMessages, {EpitechMessagesForm} from '../components/widgets/EpitechMessages';
 import EpitechModule, {EpitechModuleForm} from '../components/widgets/EpitechModule';
+import YammerPosts, {YammerPostsForm} from '../components/widgets/YammerPosts';
+import YammerMessages, {YammerMessagesForm} from '../components/widgets/YammerMessages';
+import YammerThread, {YammerThreadForm} from '../components/widgets/YammerThread';
 
 const Widgets = {
   // Display weather for a given city
@@ -232,6 +235,30 @@ const Widgets = {
     title: 'Module - Epitech Intra',
     w: 1,
     h: 1,
+  },
+  yammer_posts: {
+    service: 'yammer',
+    component: YammerPosts,
+    form: YammerPostsForm,
+    name: 'Groupe',
+    desc: 'Affiche les posts d\'un groupe',
+    title: 'Groupe - Yammer',
+  },
+  yammer_thread: {
+    service: 'yammer',
+    component: YammerThread,
+    form: YammerThreadForm,
+    name: 'Thread',
+    desc: 'Affiche les posts d\'un thread',
+    title: 'Thread - Yammer',
+  },
+  yammer_messages: {
+    service: 'yammer',
+    component: YammerMessages,
+    form: YammerMessagesForm,
+    name: 'Messages',
+    desc: 'Affiche mes messages reçus',
+    title: 'Messages - Yammer',
   },
 };
 

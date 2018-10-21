@@ -133,6 +133,36 @@ const about = {
         ]
       },
       {
+        name: 'yammer',
+        widgets: [
+          {
+            name: 'posts',
+            description: 'Affiche les messages d\'un groupe',
+            params: [
+              {
+                name: 'groupId',
+                type: 'string'
+              }
+            ]
+          },
+          {
+            name: 'received',
+            description: 'Affiche les messages reçus',
+            params: []
+          },
+          {
+            name: 'thread',
+            description: 'Affiche les messages d\'un thread',
+            params: [
+              {
+                name: 'threadId',
+                type: 'string'
+              }
+            ]
+          },
+        ]
+      },
+      {
         name: 'trello',
         widgets: [
           {

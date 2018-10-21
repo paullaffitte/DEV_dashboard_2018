@@ -91,6 +91,12 @@ let config = {
       "successRedirect": process.env.CLIENT_URL,
       "callbackURL": `${process.env.API_URL}/auth/twitter/callback`
     },
+    "yammer": {
+      "clientID": "SAiz6csK70fHbTiuWX2LA",
+      "clientSecret": "yZdsh3cA8knYevW2TzbBjqYTnD76mBJV6bwLTz40UA",
+      "successRedirect": process.env.CLIENT_URL,
+      "callbackURL": `${process.env.API_URL}/auth/yammer/callback`
+    },
     "cookie": {
       "enabled": true,
       "name": "feathers-jwt",

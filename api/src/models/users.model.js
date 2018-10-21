@@ -35,6 +35,9 @@ module.exports = function(app) {
 
     epitech: {type: Object}
 
+    yammerId: {type: String},
+    yammer: {type: Object},
+
   }, {
       timestamps: true
     });

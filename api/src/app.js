@@ -60,6 +60,13 @@ app.use('/epitech', proxy({
     '^/epitech': '/'
   },
 }));
+app.use('/yammer', proxy({
+  target: 'https://www.yammer.com/api/v1',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/yammer': '/'
+  },
+}));
 
 // Host the public folder
 app.use('/', express.static(app.get('public')));
