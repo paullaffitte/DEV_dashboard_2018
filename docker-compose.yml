@@ -1,7 +1,7 @@
 services:
   client:
     build:
-      context: ./client
+      context: /Users/arthur/Documents/Epitech/Tek3/DEV/DEV_dashboard_2018/client
       dockerfile: ./docker/Dockerfile
     environment:
       CHOKIDAR_USEPOLLING: "true"
@@ -31,7 +31,7 @@ services:
       target: 8081
     restart: unless-stopped
   server:
-    command: yarn && yarn start
+    command: sh -c 'yarn && yarn start'
     environment:
       API_URL: https://localhost:3030
       CLIENT_URL: https://localhost:3000
@@ -40,15 +40,15 @@ services:
       DB_PORT: '27017'
       DB_USERNAME: admin
       NODE_ENV: development
-    image: node:8.12-alpine
+    image: node:10-stretch
     ports:
     - published: 3030
       target: 3030
     - published: 8080
-      target: 3030
+      target: 8080
     restart: unless-stopped
     volumes:
-    - ./api:/app:rw
+    - /Users/arthur/Documents/Epitech/Tek3/DEV/DEV_dashboard_2018/api:/app:rw
     working_dir: /app
 version: '3.5'
 volumes:
