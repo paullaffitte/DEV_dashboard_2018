@@ -38,6 +38,9 @@ module.exports = function(app) {
     yammerId: {type: String},
     yammer: {type: Object},
 
+    steamId: {type: String},
+    steam: {type: Object},
+
   }, {
       timestamps: true
     });

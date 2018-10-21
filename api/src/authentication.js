@@ -9,11 +9,9 @@ const GithubStrategy = require('passport-github');
 const TwitterStrategy = require('passport-twitter');
 const YammerStrategy = require('passport-yammer').Strategy;
 const TrelloStrategy = require('passport-trello').Strategy;
-// const SteamStrategy = require('passport-steam');
-// const StackExchangeStrategy = require('passport-stack-exchange');
+const SteamStrategy = require('passport-steam');
 
 const AuthVerifier = require('./verifiers/AuthVerifier');
-
 
 module.exports = function(app) {
   const config = app.get('authentication');
@@ -63,11 +61,11 @@ module.exports = function(app) {
     Verifier: AuthVerifier,
   }, config.yammer)));
 
-  // app.configure(oauth2(Object.assign({
-  //   name: 'stackoverflow',
-  //   Strategy: StackExchangeStrategy,
-  //   Verifier: AuthVerifier,
-  // }, config.stackoverflow)));
+  app.configure(oauth2(Object.assign({
+    name: 'steam',
+    Strategy: SteamStrategy,
+    Verifier: AuthVerifier,
+  }, config.steam)));
 
   // The `authentication` service is used to create a JWT.
   // The before `create` hook registers strategies that can be used

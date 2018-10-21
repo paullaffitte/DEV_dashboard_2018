@@ -23,6 +23,8 @@ import EpitechModule, {EpitechModuleForm} from '../components/widgets/EpitechMod
 import YammerPosts, {YammerPostsForm} from '../components/widgets/YammerPosts';
 import YammerMessages, {YammerMessagesForm} from '../components/widgets/YammerMessages';
 import YammerThread, {YammerThreadForm} from '../components/widgets/YammerThread';
+import SteamRecentGames from '../components/widgets/SteamRecentGames';
+import SteamForm from '../components/widgets/SteamForm';
 
 const Widgets = {
   // Display weather for a given city
@@ -260,16 +262,14 @@ const Widgets = {
     desc: 'Affiche mes messages reçus',
     title: 'Messages - Yammer',
   },
+  steam_recentGames: {
+    service: 'steam',
+    component: SteamRecentGames,
+    form: SteamForm,
+    name: 'Jeux récemment joués',
+    desc: 'Affiche les jeux auquels un utilisateur a récemment joué',
+    title: config => 'Jeux récemments joués',
   },
-  // steam_test: {
-  //   service: 'steam',
-  //   component: GithubPullRequests,
-  //   form: GithubPullRequestsForm,
-  //   name: 'Test',
-  //   desc: 'Affiche les dernières vidéos d\'un producteur',
-  //   title: config => 'test',
-  //   config: config => ({...config}),
-  // },
 };
 
 export default Widgets;
