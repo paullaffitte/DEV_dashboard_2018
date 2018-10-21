@@ -12,7 +12,7 @@ services:
     ports:
       - '3030:3030'
       - '8080:3030'
-    command: yarn start
+    command: yarn && yarn start
     working_dir: /app
     volumes:
       - '../api:/app'

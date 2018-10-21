@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const fs = require('fs');
 const https = require('https');
-const logger = require('winston');
+// const logger = require('winston');
 const app = require('./app');
 
 const server = https.createServer({
