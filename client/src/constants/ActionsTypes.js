@@ -10,6 +10,10 @@ const ActionsTypes = keyMirror({
   LOGOUT: null,
   CREATE_USER: null,
 
+  // Services
+  SUBSCRIBE_SERVICE: null,
+  SUBSCRIBE_SERVICE_SUCCESS: null,
+
   // Widgets
   ADD_WIDGET: null,
   ADD_WIDGET_SUCCESS: null,
