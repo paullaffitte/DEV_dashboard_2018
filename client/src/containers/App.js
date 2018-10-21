@@ -14,7 +14,7 @@ class App extends Component {
         steps: [
           {
             target: '.Dashboard__openButton',
-            content: 'Cliquez pour découvrir notre liste de widgets',
+            content: 'Cliquez pour découvrir notre liste de widgets !',
             placement: 'bottom',
           },
           {
@@ -24,12 +24,17 @@ class App extends Component {
           },
           {
             target: '.Dashboard__openButton',
-            content: 'Ainsi que vous abonner à un service authentifié' ,
+            content: 'Ainsi que vous abonner à un service authentifié.' ,
+            placement: 'center',
+          },
+          {
+            target: '.Dashboard__openButton',
+            content: 'Chaque widget sur le dashboard peut être reconfiguré, agrandi ou rétréci, déplacé ou supprimé.' ,
             placement: 'center',
           },
           {
             target: '.Dashboard__redoTourButton',
-            content: 'Pour revoir ce tutoriel, cliquez sur ce bouton' ,
+            content: 'Pour revoir ce tutoriel, cliquez sur ce bouton.' ,
             placement: 'top',
           },
         ]
