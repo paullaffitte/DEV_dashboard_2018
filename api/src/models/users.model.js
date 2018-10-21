@@ -33,6 +33,8 @@ module.exports = function(app) {
     trelloId: {type: String},
     trello: {type: Object},
 
+    epitech: {type: Object}
+
   }, {
       timestamps: true
     });

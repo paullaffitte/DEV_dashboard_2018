@@ -13,13 +13,13 @@ class Widget extends Component {
 
   state = {
     title: '',
-		widgetFormIsOpen: false,
-	}
+    widgetFormIsOpen: false,
+  }
 
   setChildRef = ref => {
     this.widgetContent = ref;
     this.widgetContent.update();
-    this.refresh = setInterval(this.widgetContent.update, this.props.config.refreshInterval || 5000);
+    this.refresh = setInterval(this.widgetContent.update, this.props.config.refreshInterval || 20000);
   };
 
   updateTitle = title => {
@@ -30,7 +30,7 @@ class Widget extends Component {
 
   componentWillUnmount() {
     clearInterval(this.refresh);
-	}
+  }
 
 
   componentDidUpdate(prevProps) {
@@ -40,7 +40,7 @@ class Widget extends Component {
   }
 
   toggleWidgetForm = (isOpen) => {
-    this.setState({ widgetFormIsOpen: isOpen });
+    this.setState({widgetFormIsOpen: isOpen});
   }
 
   onUpdate = (_, values) => {
@@ -71,17 +71,18 @@ class Widget extends Component {
             style={{width: 20, height: 20, marginRight: 4}}
             src={icon}
           />
-          <h3>{title}</h3>
+          <h3>{this.state.title || title}</h3>
         </div>
         <div className="Widget--body">
           <WidgetComponent
             config={this.props.config}
             user={this.props.user}
             setChildRef={this.setChildRef}
+            onTitleUpdate={this.updateTitle}
           />
         </div>
         <div className="Widget--extra">
-          <Icon className="button" type="setting" onClick={() => (this.setState({ widgetFormIsOpen: true }))} />
+          <Icon className="button" type="setting" onClick={() => (this.setState({widgetFormIsOpen: true}))} />
         </div>
         <WidgetForm
           widget={this.state.widgetFormIsOpen && this.props.name}

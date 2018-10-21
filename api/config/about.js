@@ -183,6 +183,26 @@ const about = {
         ]
       },
       {
+        name: 'epitech_intra',
+        widgets: [
+          {
+            name: 'notifications',
+            description: 'Affiche les notifications de l\'utilisateur',
+            params: []
+          },
+          {
+            name: 'mpdule',
+            description: 'Affiche les activités d\'un module',
+            params: [
+              {
+                name: 'moduleId',
+                type: 'string'
+              }
+            ]
+          }
+        ]
+      },
+      {
         name: 'lastfm',
         widgets: [
           {

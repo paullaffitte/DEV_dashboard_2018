@@ -18,6 +18,8 @@ import TrelloAssigned, {TrelloAssignedForm} from '../components/widgets/TrelloAs
 import TrelloMine, {TrelloMineForm} from '../components/widgets/TrelloMine';
 import TrelloLists, {TrelloListsForm} from '../components/widgets/TrelloLists';
 import TrelloBoard, {TrelloBoardForm} from '../components/widgets/TrelloBoard';
+import EpitechMessages, {EpitechMessagesForm} from '../components/widgets/EpitechMessages';
+import EpitechModule, {EpitechModuleForm} from '../components/widgets/EpitechModule';
 
 const Widgets = {
   // Display weather for a given city
@@ -58,8 +60,8 @@ const Widgets = {
     name: 'Pull Requests',
     desc: 'Affiche les pull requests d\'un repository',
     title: config => `${config.repository} - Pull Requests`,
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   twitter_tweets: {
     service: 'twitter',
@@ -68,8 +70,8 @@ const Widgets = {
     name: 'Compte',
     desc: 'Affiche les tweets d\'un compte',
     title: config => `${config.screenView} - Twitter`,
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   dataatwork_jobs: {
     service: 'dataatwork',
@@ -78,7 +80,7 @@ const Widgets = {
     name: 'Emplois',
     desc: 'Affiche des emplois relatif à une compétence',
     title: 'DataAtWork - Emplois',
-		w: 1,
+    w: 1,
     h: 1,
   },
   dataatwork_skills: {
@@ -88,8 +90,8 @@ const Widgets = {
     name: 'Compétences',
     desc: 'Affiche des compétence relatif à une emplois',
     title: 'DataAtWork - Compétences',
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   minecraft_banner: {
     service: 'minecraft',
@@ -98,8 +100,8 @@ const Widgets = {
     name: 'Bannière',
     desc: 'Affiche la bannière d\'un serveur',
     title: config => `${config.serverUrl} - Bannière`,
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   minecraft_status: {
     service: 'minecraft',
@@ -108,8 +110,8 @@ const Widgets = {
     name: 'Status',
     desc: 'Affiche le status d\'un serveur',
     title: config => `${config.serverUrl} - Status`,
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   loripsum: {
     service: 'loripsum',
@@ -118,8 +120,8 @@ const Widgets = {
     name: 'Generator',
     desc: 'Génère des lorem ipsum',
     title: config => `Lorem ipsum`,
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   lastfm_artistTopTracks: {
     service: 'lastfm',
@@ -128,8 +130,8 @@ const Widgets = {
     name: 'Top tracks',
     desc: 'Top tracks d\'un artiste',
     title: config => `${config.artist} - Top tracks`,
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   lastfm_artistTopAlbums: {
     service: 'lastfm',
@@ -138,8 +140,8 @@ const Widgets = {
     name: 'Top albums',
     desc: 'Top albums d\'un artiste',
     title: config => `${config.artist} - Top albums`,
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   lastfm_artistTopTags: {
     service: 'lastfm',
@@ -148,8 +150,8 @@ const Widgets = {
     name: 'Top tags',
     desc: 'Top tags d\'un artiste',
     title: config => `${config.artist} - Top tags`,
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   trello_column: {
     service: 'trello',
@@ -158,8 +160,8 @@ const Widgets = {
     name: 'Liste',
     desc: 'Affiche une liste de cartes',
     title: 'Liste Trello',
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   trello_assigned: {
     service: 'trello',
@@ -168,8 +170,8 @@ const Widgets = {
     name: 'Assignées',
     desc: 'Affiche les cartes assignées a un utilisateur',
     title: 'Liste Trello',
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   trello_mine: {
     service: 'trello',
@@ -178,8 +180,8 @@ const Widgets = {
     name: 'Mes cartes',
     desc: 'Affiche les cartes assignées a moi-même',
     title: 'Mes cartes - Trello',
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   trello_lists: {
     service: 'trello',
@@ -188,8 +190,8 @@ const Widgets = {
     name: 'Listes',
     desc: 'Affiche les listes d\'un tableau',
     title: 'Listes - Trello',
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
   },
   trello_board: {
     service: 'trello',
@@ -198,8 +200,38 @@ const Widgets = {
     name: 'Tableau',
     desc: 'Affiche les cartes d\'un tableau',
     title: 'Tableau - Trello',
-		w: 1,
-		h: 1,
+    w: 1,
+    h: 1,
+  },
+  trello_board: {
+    service: 'trello',
+    component: TrelloBoard,
+    form: TrelloBoardForm,
+    name: 'Tableau',
+    desc: 'Affiche les cartes d\'un tableau',
+    title: 'Tableau - Trello',
+    w: 1,
+    h: 1,
+  },
+  epitech_messages: {
+    service: 'epitech',
+    component: EpitechMessages,
+    form: EpitechMessagesForm,
+    name: 'Notifications',
+    desc: 'Affiche les notifications de l\'intra',
+    title: 'Notifications - Epitech Intra',
+    w: 1,
+    h: 1,
+  },
+  epitech_module: {
+    service: 'epitech',
+    component: EpitechModule,
+    form: EpitechModuleForm,
+    name: 'Module',
+    desc: 'Affiche les activités d\'un module',
+    title: 'Module - Epitech Intra',
+    w: 1,
+    h: 1,
   },
 };
 

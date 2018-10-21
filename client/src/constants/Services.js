@@ -12,6 +12,12 @@ const Services = {
     isValid: user => user.github && user.github.accessToken,
     subscribe: Globals.API_URL + '/auth/github',
   },
+  epitech: {
+    icon: 'https://lh4.ggpht.com/sznQf6u_RQ5iGG8k2HpC7Y_kzWCSZctlLKHGsGKi66lhMICuRTQU-GfXB5IxTpbnth4=w300',
+    name: 'Epitech Intra',
+    isValid: user => user.epitech && user.epitech.autoLogin,
+    subscribe: ['autoLogin'],
+  },
   twitter: {
     icon: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/300px-Twitter_bird_logo_2012.svg.png',
     name: 'Twitter',

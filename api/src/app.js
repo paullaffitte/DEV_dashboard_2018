@@ -53,6 +53,13 @@ app.use('/twitter', proxy({
     '^/twitter': '/'
   },
 }));
+app.use('/epitech', proxy({
+  target: 'https://intra.epitech.eu',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/epitech': '/'
+  },
+}));
 
 // Host the public folder
 app.use('/', express.static(app.get('public')));
