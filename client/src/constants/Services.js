@@ -56,6 +56,13 @@ const Services = {
     isValid: user => user.yammer && user.yammer.accessToken,
     subscribe: Globals.API_URL + '/auth/yammer',
   },
+  steam: {
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg',
+    name: 'Steam',
+    isValid: user => user.steam && user.steam.accessToken,
+    subscribe: Globals.API_URL + '/auth/steam',
+    apiKey: 'BB9FD05A1E55CA23A4211CD0D6AFAB02',
+  },
 };
 
 export default Services;

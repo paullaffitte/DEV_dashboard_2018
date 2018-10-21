@@ -97,6 +97,15 @@ let config = {
       "successRedirect": process.env.CLIENT_URL,
       "callbackURL": `${process.env.API_URL}/auth/yammer/callback`
     },
+    "steam": {
+      "clientID": 'STEAM_0:0:29235706',
+      "clientSecret": 'BB9FD05A1E55CA23A4211CD0D6AFAB02',
+      "apiKey": 'BB9FD05A1E55CA23A4211CD0D6AFAB02',
+      "providerURL": 'https://steamcommunity.com/openid',
+      "returnURL": `${process.env.API_URL}/auth/steam/callback`,
+      "successRedirect": "https://localhost:3000/",
+      "realm": 'https://localhost:3030/',
+    },
     "cookie": {
       "enabled": true,
       "name": "feathers-jwt",
