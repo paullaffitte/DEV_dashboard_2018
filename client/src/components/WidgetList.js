@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Button} from 'antd'
 import PropTypes from 'prop-types';
 
+import SubscribeForm from './SubscribeForm';
+
 import Widgets from '../constants/Widgets';
 import Services from '../constants/Services';
 
@@ -9,7 +11,29 @@ import "./WidgetList.css";
 
 class WidgetList extends Component {
 
+  state = {
+    subscribeFormInputs: null,
+    subscribeService: null,
+  }
+
+  subscribe = (name, method) => {
+    if (typeof method === 'string') {
+      window.location.href = method;
+    } else if (typeof method === 'object') {
+      console.log(name, method);
+      this.setState({
+        subscribeFormInputs: method,
+        subscribeService: name,
+      });
+    }
+  }
+
+  onSubscribe = (values) => {
+    this.props.subscribeService(this.state.subscribeService, values);
+  }
+
   render() {
+    console.log('new Render', this.props.user, this.props.user.twitter);
     return (
       <div className="WidgetList">
         {Object.keys(Services).map((serviceKey, serviceIt) => {
@@ -25,7 +49,7 @@ class WidgetList extends Component {
                   src={service.icon}
                 />
                 <span style={{fontWeight: 'bold'}}>{service.name}</span>
-                {isValid || <a style={{float: 'right'}} href={service.subscribeUrl}>Subscribe</a>}
+                {isValid || <a style={{float: 'right'}} onClick={() => (this.subscribe(serviceKey, service.subscribe))}>Subscribe</a>}
               </div>
               {Object.keys(Widgets).map((widgetKey, widgetIt) => {
                 const widget = Widgets[widgetKey];
@@ -47,6 +71,12 @@ class WidgetList extends Component {
             </div>
           );
         })}
+        <SubscribeForm
+          isOpen={!!this.state.subscribeFormInputs}
+          onSubscribe={this.onSubscribe}
+          onClose={() => (this.setState({ subscribeFormInputs: null }))}
+          inputs={this.state.subscribeFormInputs}
+        />
       </div>
     );
   }
