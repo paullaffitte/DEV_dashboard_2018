@@ -7,7 +7,7 @@ Epitech school project.
 ## Summary
 
 * [Quickstart](#quickstart)
-* [How to create your own service/widgets](#howto)
+* [Creating services and widgets](#howto)
 * [Services](#services)
 	* [weather](#weather)
 		* [weather_city](#weather_city)
@@ -42,8 +42,9 @@ Epitech school project.
 		* [lastfm_artistTopTracks](#lastfm_artistTopTracks)
 		* [lastfm_artistTopAlbums](#lastfm_artistTopAlbums)
 		* [lastfm_artistTopTags](#lastfm_artistTopTags)
+	* [steam](#steam)
+		* [recently_played](#recently_played)
 	* [facebook](#facebook)
-	* [google](#google)
 
 ## <a name="quickstart"></a>Quickstart
 
@@ -385,9 +386,17 @@ Top tags d'un artiste
 
 `artist: string`
 
-### <a name="facebook"></a>facebook
+### <a name="steam"></a>steam
 
-### <a name="google"></a>google
+#### <a name="recently_played"></a>recently_played
+
+Affiche les jeux auquel X a récemment joué
+
+##### Parameters
+
+`steamId: string`
+
+### <a name="facebook"></a>facebook
 
 
 

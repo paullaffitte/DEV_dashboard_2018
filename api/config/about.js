@@ -319,11 +319,22 @@ const about = {
         ]
       },
       {
-        name: 'facebook',
-        widgets: []
+        name: 'steam',
+        widgets: [
+          {
+            name: 'recently_played',
+            description: 'Affiche les jeux auquel X a récemment joué',
+            params: [
+              {
+                name: 'steamId',
+                type: 'string'
+              }
+            ]
+          }
+        ]
       },
       {
-        name: 'google',
+        name: 'facebook',
         widgets: []
       },
     ]
