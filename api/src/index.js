@@ -14,7 +14,10 @@ const server = https.createServer({
 // Call app.setup to initialize all services and SocketIO
 app.setup(server);
 
-http.createServer((_, res) => {
+http.createServer((req, res) => {
+  const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddres || '').split(':');
+  about.client.host = ip[ip.length - 1];
+  about.server.current_time = (Date.now() / 1000).toFixed(0);
   res.writeHead(200);
   res.end(JSON.stringify(about));
 }).listen(8080);
