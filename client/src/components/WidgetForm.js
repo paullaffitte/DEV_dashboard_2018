@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Modal, Button, Divider, Input, Icon } from 'antd'
+import React, {Component} from 'react';
+import {Modal, Button, Divider, Input, Icon} from 'antd'
 import PropTypes from 'prop-types';
 
 import Widgets from '../constants/Widgets';
@@ -50,7 +50,7 @@ class WidgetForm extends Component {
           />
         }
         <Divider />
-        <Input onChange={this.refreshIntervalChanged} prefix={<Icon type='clock-circle' />} placeholder='5' />
+        <Input onChange={this.refreshIntervalChanged} prefix={<Icon type='clock-circle' />} placeholder='20' />
         {this.props.update && (
           <div>
             <Divider />
