@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Form, Icon, Input, List} from 'antd';
 import LastFM from '../../services/LastFM';
-import LastFMArtistForm from './LastFMArtistForm'
+import LastFMArtistForm from './LastFMArtistForm';
+import './Github.css';
 
 class LastFMArtistTopTracks extends Component {
 
@@ -38,7 +39,7 @@ class LastFMArtistTopTracks extends Component {
               <table>
                 <tbody>
                   <tr>
-                    <td><img src={item.image.filter(i => i.size == 'medium').pop()['#text']}/></td>
+                    <td style={{paddingRight: 10}}><img src={item.image.filter(i => i.size == 'medium').pop()['#text']}/></td>
                     <td>{item.name}</td>
                   </tr>
                   <tr><td>Playcount</td><td>{item.playcount}</td></tr>

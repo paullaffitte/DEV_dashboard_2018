@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Form, Icon, Input, List} from 'antd';
 import LastFM from '../../services/LastFM';
-import LastFMArtistForm from './LastFMArtistForm'
+import LastFMArtistForm from './LastFMArtistForm';
+import './Github.css';
 
 class LastFMArtistTopTags extends Component {
 
@@ -38,7 +39,7 @@ class LastFMArtistTopTags extends Component {
               <table>
                 <tbody>
                   <tr>
-                    <td style={{width: 150}}><a href={item.url}>{item.name}</a></td>
+                    <td style={{width: 120}}><a href={item.url}>{item.name}</a></td>
                   </tr>
                   <tr><td>Score</td><td>{item.count}</td></tr>
                 </tbody>
