@@ -33,7 +33,7 @@ module.exports = function(app) {
     trelloId: {type: String},
     trello: {type: Object},
 
-    epitech: {type: Object}
+    epitech: {type: Object},
 
     yammerId: {type: String},
     yammer: {type: Object},
