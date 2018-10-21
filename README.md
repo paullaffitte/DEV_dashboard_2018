@@ -99,23 +99,75 @@ Now you have configured your service, it's time to configure associated widgets!
 
 ### Configure widgets
 
+#### Create your widget form
+
+Create _/src/components/widgets/MyWidgetForm.js_ file:
+
+```javascript
+import React, {Component} from 'react';
+import {Form, Icon, Input} from 'antd';
+
+class MyWidgetForm extends Component {
+  render() {
+    const {getFieldDecorator} = this.props.form;
+    return (
+      <Form style={{textAlign: 'right'}}>
+        <Form.Item>
+          {getFieldDecorator('some_config', {
+            rules: [{required: true, message: 'Please enter a city.'}],
+          })(
+            <Input prefix={<Icon type='plus' />} placeholder='some config' />
+          )}
+        </Form.Item>
+      </Form>
+    );
+  }
+}
+
+export default Form.create()(MyWidgetForm);
+```
+
 #### Create your widget component
 
-#### Create your widget form
+Create _/src/components/widgets/MyWidget.js_ file:
+
+```javascript
+import React, {Component} from 'react';
+import Services from '../../constants/Services';
+
+class MyWidget extends Component {
+  componentWillMount() {
+    this.props.setChildRef(this);
+  }
+
+  update = () => {
+    // code for update your widget data here
+  }
+
+  render() {
+    console.log(this.props.config.some_config);
+    return (
+      <span>My widget</span>
+    );
+  }
+}
+
+export default MyWidget;
+```
 
 #### Edit widget configuration
 
 Edit _/client/src/constants/Widgets.js_ and add your widgets configuration, like this:
 ```javascript
-  widget1: {
-    service: 'myService',
-    component: Widget1,
-    form: Widget1Form,
-    name: 'Weather City',
-    desc: 'Affiche la météo d\'une ville donnée',
-    title: config => (`Météo ${config.city}`),
-    w: 1,
-    h: 1,
+  my_widget: {
+    service: 'myService', // service key in constants/Services.js
+    component: MyWidget,
+    form: MyWidgetForm,
+    name: 'My Widget', // widget name in widgets list
+    desc: 'Description du widget',
+    title: config => ('My Widget'), // widget title on dashboard
+    w: 2, // default display width
+    h: 1, // default display height
   },
 ```
 
