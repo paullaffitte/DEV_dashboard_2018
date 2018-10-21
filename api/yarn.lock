@@ -2151,6 +2151,7 @@ micromatch@^3.1.10:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
+<<<<<<< master
 "mime-db@>= 1.36.0 < 2", mime-db@~1.36.0:
   version "1.36.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.36.0.tgz#5020478db3c7fe93aad7bbcc4dcf869c43363397"
@@ -2160,8 +2161,19 @@ mime-types@^2.1.12, mime-types@~2.1.18, mime-types@~2.1.19:
   version "2.1.20"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.20.tgz#930cb719d571e903738520f8470911548ca2cc19"
   integrity sha512-HrkrPaP9vGuWbLK1B1FfgAkbqNjIuy4eHlIYnFi7kamZyLLrGlo2mpcx0bBmNpKqBtYtAfGbodDddIgddSJC2A==
+=======
+"mime-db@>= 1.36.0 < 2", mime-db@~1.37.0:
+  version "1.37.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.37.0.tgz#0b6a0ce6fdbe9576e25f1f2d2fde8830dc0ad0d8"
+  integrity sha512-R3C4db6bgQhlIhPU48fUtdVmKnflq+hRdad7IyKhtFj06VPNVdk2RhiYL3UjQIlso8L+YxAtFkobT0VK+S/ybg==
+
+mime-types@^2.1.12, mime-types@~2.1.18, mime-types@~2.1.19:
+  version "2.1.21"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.21.tgz#28995aa1ecb770742fe6ae7e58f9181c744b3f96"
+  integrity sha512-3iL6DbwpyLzjR3xHSFNFeb9Nz/M8WDkX33t1GFQnFOllWk8pOrh/LSrB5OXlnlW5P9LH73X6loW/eogc+F5lJg==
+>>>>>>> steam/stackoverflow public stash
   dependencies:
-    mime-db "~1.36.0"
+    mime-db "~1.37.0"
 
 mime@1.4.1:
   version "1.4.1"
@@ -2422,6 +2434,13 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
+openid@1.x.x:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/openid/-/openid-1.0.4.tgz#df39012ed525ace3aa1e87da8772e40fbb675462"
+  integrity sha1-3zkBLtUlrOOqHofah3LkD7tnVGI=
+  dependencies:
+    request "^2.61.0"
+
 optionator@^0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/optionator/-/optionator-0.8.2.tgz#364c5e409d3f4d6301d6c0b4c05bba50180aeb64"
@@ -2539,6 +2558,31 @@ passport-oauth@1.x.x, passport-oauth@^1.0.0:
   dependencies:
     passport-oauth1 "1.x.x"
     passport-oauth2 "1.x.x"
+
+passport-openid@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/passport-openid/-/passport-openid-0.4.0.tgz#c2b58f5ff4a28f285700250712d8ea5677405cd6"
+  integrity sha1-wrWPX/SijyhXACUHEtjqVndAXNY=
+  dependencies:
+    openid "1.x.x"
+    passport-strategy "1.x.x"
+
+passport-stack-exchange@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/passport-stack-exchange/-/passport-stack-exchange-1.0.0.tgz#850042cc0a0f97cdb545ffc00555a3a2e79e57d1"
+  integrity sha512-xgXQj7/ZM0u+VzxXa6KyviRPr+Qk629KsUxpuP4fAksLU7OZnq+qFOo+LS2uKXv4c5Wf8aNDISdl8/+oWiUciQ==
+  dependencies:
+    passport-oauth "^1.0.0"
+    request "^2.58.0"
+    underscore "^1.8.3"
+
+passport-steam@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/passport-steam/-/passport-steam-1.0.10.tgz#fc11d0d1c5c29b02bf7469ff5c5993bfef2a5616"
+  integrity sha512-QlxcYwC0GNs8ev0yYJxvsl8UN/Rd5bITDq46CrIIZHxZzl7jd36hCyy9cy/7G29I0LsM4u/bebCbaMmaqkY3yw==
+  dependencies:
+    passport-openid "^0.4.0"
+    steam-web "0.4.0"
 
 passport-strategy@1.x.x, passport-strategy@^1.0.0:
   version "1.0.0"
@@ -2681,7 +2725,7 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-qs@6.5.2, qs@~6.5.2:
+qs@6.5.2, qs@^6.1.0, qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
@@ -2779,7 +2823,7 @@ request-promise@^4.2.2:
     stealthy-require "^1.1.0"
     tough-cookie ">=2.3.3"
 
-request@^2.61.0, request@^2.88.0:
+request@^2.58.0, request@^2.61.0, request@^2.88.0:
   version "2.88.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   integrity sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==
@@ -3194,6 +3238,16 @@ stealthy-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+<<<<<<< master
+=======
+
+steam-web@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/steam-web/-/steam-web-0.4.0.tgz#9333b5843ff7ebd77945fe09a0d5d5b28694b331"
+  integrity sha1-kzO1hD/369d5Rf4JoNXVsoaUszE=
+  dependencies:
+    qs "^6.1.0"
+>>>>>>> steam/stackoverflow public stash
 
 string-width@^2.1.0, string-width@^2.1.1:
   version "2.1.1"
@@ -3369,6 +3423,14 @@ ultron@~1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.1.1.tgz#9fe1536a10a664a65266a1e3ccf85fd36302bc9c"
   integrity sha512-UIEXBNeYmKptWH6z8ZnqTeS8fV74zG0/eRU9VGkpzz+LIJNs8W/zM/L+7ctCkRrgbNnnR0xxw4bKOr0cW0N0Og==
+<<<<<<< master
+=======
+
+underscore@^1.8.3:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
+  integrity sha512-5/4etnCkd9c8gwgowi5/om/mYO5ajCaOgdzj/oW+0eQV9WxKBDZw5+ycmKmeaTXjInS/W0BzpGLo2xR2aBwZdg==
+>>>>>>> steam/stackoverflow public stash
 
 union-value@^1.0.0:
   version "1.0.0"

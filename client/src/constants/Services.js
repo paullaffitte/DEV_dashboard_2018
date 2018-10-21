@@ -56,6 +56,18 @@ const Services = {
     isValid: user => user.yammer && user.yammer.accessToken,
     subscribe: Globals.API_URL + '/auth/yammer',
   },
+  // stackoverflow: {
+  //   icon: 'https://ih1.redbubble.net/image.316142692.7951/ap,550x550,12x12,1,transparent,t.png',
+  //   name: 'Stackoverflow',
+  //   isValid: user => user.stackoverflow && user.stackoverflow.accessToken,
+  //   subscribeUrl: Globals.API_URL + '/auth/stackoverflow',
+  // },
+  // steam: {
+  //   icon: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg',
+  //   name: 'Steam',
+  //   isValid: user => user.steam && user.steam.accessToken,
+  //   subscribeUrl: Globals.API_URL + '/auth/steam',
+  // }
 };
 
 export default Services;

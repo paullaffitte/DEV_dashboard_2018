@@ -260,6 +260,16 @@ const Widgets = {
     desc: 'Affiche mes messages reçus',
     title: 'Messages - Yammer',
   },
+  },
+  // steam_test: {
+  //   service: 'steam',
+  //   component: GithubPullRequests,
+  //   form: GithubPullRequestsForm,
+  //   name: 'Test',
+  //   desc: 'Affiche les dernières vidéos d\'un producteur',
+  //   title: config => 'test',
+  //   config: config => ({...config}),
+  // },
 };
 
 export default Widgets;
