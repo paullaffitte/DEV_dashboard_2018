@@ -8,11 +8,11 @@ services:
     restart: unless-stopped
 
   server:
-    image: node:8.12-alpine
+    image: node:10-stretch
     ports:
       - '3030:3030'
-      - '8080:3030'
-    command: yarn start
+      - '8080:8080'
+    command: sh -c 'yarn && yarn start'
     working_dir: /app
     volumes:
       - '../api:/app'
