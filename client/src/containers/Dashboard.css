@@ -9,13 +9,13 @@
 }
 
 .Dashboard__openButton {
-  position: absolute;
+  position: fixed;
   top: 16px;
   right: 16px;
 }
 
 .Dashboard__redoTourButton {
-  position: absolute;
+  position: fixed;
   bottom: 12px;
   right: 12px;
 }
