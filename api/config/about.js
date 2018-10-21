@@ -127,7 +127,58 @@ const about = {
             name: 'loripsum',
             description: 'Génère des lorem ipsum',
             params: [
-              {} // TODO Paul
+              {
+                name: 'paragraphs',
+                type: 'integer'
+              },
+              {
+                name: 'length',
+                type: 'enum[short|medium|long|verylong]'
+              },
+              {
+                name: 'decorate',
+                type: 'boolean'
+              },
+              {
+                name: 'link',
+                type: 'boolean'
+              },
+              {
+                name: 'ul',
+                type: 'boolean'
+              },
+              {
+                name: 'ol',
+                type: 'boolean'
+              },
+              {
+                name: 'dl',
+                type: 'boolean'
+              },
+              {
+                name: 'bq',
+                type: 'boolean'
+              },
+              {
+                name: 'code',
+                type: 'boolean'
+              },
+              {
+                name: 'headers',
+                type: 'boolean'
+              },
+              {
+                name: 'allcaps',
+                type: 'boolean'
+              },
+              {
+                name: 'prude',
+                type: 'boolean'
+              },
+              {
+                name: 'plaintext',
+                type: 'boolean'
+              },
             ]
           },
         ]
