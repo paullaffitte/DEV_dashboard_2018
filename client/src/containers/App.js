@@ -27,11 +27,17 @@ class App extends Component {
             content: 'Ainsi que vous abonner à un service authentifié' ,
             placement: 'center',
           },
+          {
+            target: '.Dashboard__redoTourButton',
+            content: 'Pour revoir ce tutoriel, cliquez sur ce bouton' ,
+            placement: 'top',
+          },
         ]
     };
 
     componentDidMount() {
         this.props.actions.getCurrentUser();
+        console.log(!localStorage.getItem('tourDone'));
     }
 
     render() {
@@ -40,7 +46,12 @@ class App extends Component {
         return this.props.currentUser ? (
             <Router>
                 <span>
-                    <Dashboard ref={c => this.dashboardRef = c } />
+                    <Dashboard
+                        ref={c => this.dashboardRef = c }
+                        redoTour={async () => {
+                            await this.setState({run: true});
+                            console.table(this.state);
+                        }}/>
                     <Joyride
                         steps={steps}
                         run={run}
@@ -49,7 +60,7 @@ class App extends Component {
                         showSkipButton={true}
                         continuous={true}
                         spotlightClicks={true}
-                        locale={{ back: 'Retour', close: 'Fermer', last: 'Dernier', next: 'Suivant', skip: 'Passer' }}
+                        locale={{ back: 'Précédent', close: 'Fermer', last: 'Terminé', next: 'Suivant', skip: 'Passer' }}
                         />
                 </span>
             </Router>

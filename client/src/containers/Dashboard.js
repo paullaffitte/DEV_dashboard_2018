@@ -85,6 +85,14 @@ class Dashboard extends Component {
 						onClick={() => this.toggleDrawer(true)}
 						style={{zIndex: 99}}
 					/>
+					<Button
+						className="Dashboard__redoTourButton"
+						shape="circle"
+						icon="reload"
+						size="small"
+						onClick={this.props.redoTour}
+						style={{zIndex: 99}}
+					/>
 					<GridLayout className="layout" cols={10} rowHeight={100} width={this.getClientWidth()}>
 						{this.renderWidgets()}
 					</GridLayout>
