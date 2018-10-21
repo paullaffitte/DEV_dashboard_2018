@@ -12,6 +12,7 @@ import SubscribeServiceList from '../components/SubscribeServiceList';
 import './Dashboard.css';
 
 class Dashboard extends Component {
+
 	state = {
 		drawerIsOpen: false,
 		subscribeServiceIsOpen: false,
@@ -135,4 +136,4 @@ const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(ActionCreators, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps, null, { withRef: true })(Dashboard);
