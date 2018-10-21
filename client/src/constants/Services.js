@@ -54,7 +54,7 @@ const Services = {
     icon: 'https://www.tahawultech.com/wp-content/uploads/2012/08/Yammer.png',
     name: 'Yammer',
     isValid: user => user.yammer && user.yammer.accessToken,
-    subscribeUrl: Globals.API_URL + '/auth/yammer',
+    subscribe: Globals.API_URL + '/auth/yammer',
   },
 };
 
