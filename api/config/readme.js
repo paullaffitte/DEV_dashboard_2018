@@ -6,7 +6,7 @@ const about = require('./about');
 const head = fs.readFileSync('./README.md').toString();
 const arch = fs.readFileSync('./ARCH.md').toString();
 
-let summary = `* [Architecutre](#arch)\n* [Services](#services)`;
+let summary = `* [Architecutre](#arch)\n* [Services](#services)\n`;
 
 let body = '';
 
@@ -15,8 +15,9 @@ about.server.services.forEach(service => {
   body += `### <a name="${service.name}"></a>${service.name}\n\n`;
   service.widgets.forEach(widget => {
     summary += `\t\t* [${widget.name}](#${widget.name})\n`
-    const params = widget.params.map(e => `\`${e.name}: ${e.type}\``).join('\n');
-    body += `#### <a name="${widget.name}"></a>${widget.name}\n\n${widget.description}\n\n##### Parameters\n\n${params}\n\n`;
+    let params = widget.params.map(e => `\`${e.name}: ${e.type}\``);
+    params = params.length ? '##### Parameters\n\n' + params.join('\n') : '';
+    body += `#### <a name="${widget.name}"></a>${widget.name}\n\n${widget.description}\n\n${params}\n\n`;
   });
 });
 

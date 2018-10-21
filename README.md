@@ -7,7 +7,8 @@ Epitech school project.
 ## Summary
 
 * [Architecutre](#arch)
-* [Services](#services)	* [weather](#weather)
+* [Services](#services)
+	* [weather](#weather)
 		* [weather_city](#weather_city)
 	* [github](#github)
 		* [github_commits](#github_commits)
@@ -151,8 +152,6 @@ Affiche les cartes assignées a un utilisateur
 #### <a name="trello_mine"></a>trello_mine
 
 Affiche les cartes assignées a moi-même
-
-##### Parameters
 
 
 
