@@ -99,6 +99,26 @@ Now you have configured your service, it's time to configure associated widgets!
 
 ### Configure widgets
 
+#### Create your widget component
+
+#### Create your widget form
+
+#### Edit widget configuration
+
+Edit _/client/src/constants/Widgets.js_ and add your widgets configuration, like this:
+```javascript
+  widget1: {
+    service: 'myService',
+    component: Widget1,
+    form: Widget1Form,
+    name: 'Weather City',
+    desc: 'Affiche la météo d\'une ville donnée',
+    title: config => (`Météo ${config.city}`),
+    w: 1,
+    h: 1,
+  },
+```
+
 It's all !
 
 ## <a name="services"></a>Services
