@@ -16,6 +16,7 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-grid-layout": "^0.16.6",
+    "react-joyride": "^2.0.0-15",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.3",

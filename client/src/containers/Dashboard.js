@@ -12,6 +12,7 @@ import SubscribeServiceList from '../components/SubscribeServiceList';
 import './Dashboard.css';
 
 class Dashboard extends Component {
+
 	state = {
 		drawerIsOpen: false,
 		subscribeServiceIsOpen: false,
@@ -84,6 +85,14 @@ class Dashboard extends Component {
 						onClick={() => this.toggleDrawer(true)}
 						style={{zIndex: 99}}
 					/>
+					<Button
+						className="Dashboard__redoTourButton"
+						shape="circle"
+						icon="reload"
+						size="small"
+						onClick={this.props.redoTour}
+						style={{zIndex: 99}}
+					/>
 					<GridLayout className="layout" cols={10} rowHeight={100} width={this.getClientWidth()}>
 						{this.renderWidgets()}
 					</GridLayout>
@@ -135,4 +144,4 @@ const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(ActionCreators, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps, null, { withRef: true })(Dashboard);
