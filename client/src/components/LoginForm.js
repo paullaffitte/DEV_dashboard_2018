@@ -43,7 +43,7 @@ class LoginForm extends Component {
         <Divider />
         <Button className="LoginForm__loginButton github" onClick={this.logTo('github')} icon="github" type="primary" block size='large'>Login with Github</Button>
         <Button className="LoginForm__loginButton facebook" onClick={this.logTo('facebook')} icon="facebook" type="primary" block size='large'>Login with Facebook</Button>
-        <Button className="LoginForm__loginButton google" onClick={this.logTo('google')} icon="google" type="primary" block size='large'>Login with Google</Button>
+        {/* <Button className="LoginForm__loginButton google" onClick={this.logTo('google')} icon="google" type="primary" block size='large'>Login with Google</Button> */}
         <Button className="LoginForm__loginButton twitter" onClick={this.logTo('twitter')} icon="twitter" type="primary" block size='large'>Login with Twitter</Button>
       </Form>
     );
