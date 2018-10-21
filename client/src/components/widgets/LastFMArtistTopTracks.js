@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Form, Icon, Input, List} from 'antd';
 import LastFM from '../../services/LastFM';
-import LastFMArtistForm from './LastFMArtistForm'
+import LastFMArtistForm from './LastFMArtistForm';
+import './Github.css';
 
 class LastFMArtistTopTracks extends Component {
 
