@@ -1,5 +1,5 @@
 const Debug = require('debug');
-const { Verifier } = require('@feathersjs/authentication-oauth2');
+const Verifier = require('./Verifier.js');
 
 const debug = Debug('feathers-authentication-emailfirstoauth2:verify');
 
@@ -27,6 +27,7 @@ class AuthVerifier extends Verifier {
               provider: 'rest',
             }
         };
+
         return authenticateHook(context).then(r => {
             if(r.params.authenticated) {
                req.user = r.params.user;
