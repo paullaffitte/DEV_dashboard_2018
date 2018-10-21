@@ -6,7 +6,8 @@ Epitech school project.
 
 ## Summary
 
-* [Architecutre](#arch)
+* [Quickstart](#quickstart)
+* [Architecture](#arch)
 * [Services](#services)
 	* [weather](#weather)
 		* [weather_city](#weather_city)
@@ -36,11 +37,36 @@ Epitech school project.
 		* [trello_board](#trello_board)
 	* [epitech_intra](#epitech_intra)
 		* [notifications](#notifications)
-		* [mpdule](#mpdule)
+		* [module](#module)
 	* [lastfm](#lastfm)
 		* [lastfm_artistTopTracks](#lastfm_artistTopTracks)
 		* [lastfm_artistTopAlbums](#lastfm_artistTopAlbums)
 		* [lastfm_artistTopTags](#lastfm_artistTopTags)
+	* [facebook](#facebook)
+	* [google](#google)
+
+## <a name="quickstart"></a>Quickstart
+
+Configure project:
+
+```bash
+./docker/dashboard.sh config > docker-compose.yml
+```
+
+Live refresh dev server:
+
+```bash
+docker-compose up -d
+docker-compose stop client
+cd client && yarn start
+```
+
+Prod build:
+
+```bash
+docker-compose build
+docker-compose up -d
+```
 
 ## <a name="arch"></a>Architecture
 
@@ -138,7 +164,19 @@ Génère des lorem ipsum
 
 ##### Parameters
 
-`undefined: undefined`
+`paragraphs: integer`
+`length: enum[short|medium|long|verylong]`
+`decorate: boolean`
+`link: boolean`
+`ul: boolean`
+`ol: boolean`
+`dl: boolean`
+`bq: boolean`
+`code: boolean`
+`headers: boolean`
+`allcaps: boolean`
+`prude: boolean`
+`plaintext: boolean`
 
 ### <a name="yammer"></a>yammer
 
@@ -212,7 +250,7 @@ Affiche les notifications de l'utilisateur
 
 
 
-#### <a name="mpdule"></a>mpdule
+#### <a name="module"></a>module
 
 Affiche les activités d'un module
 
@@ -245,6 +283,10 @@ Top tags d'un artiste
 ##### Parameters
 
 `artist: string`
+
+### <a name="facebook"></a>facebook
+
+### <a name="google"></a>google
 
 
 

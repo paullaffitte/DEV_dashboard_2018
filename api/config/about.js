@@ -272,7 +272,7 @@ const about = {
             params: []
           },
           {
-            name: 'mpdule',
+            name: 'module',
             description: 'Affiche les activités d\'un module',
             params: [
               {
@@ -317,6 +317,14 @@ const about = {
             ]
           },
         ]
+      },
+      {
+        name: 'facebook',
+        widgets: []
+      },
+      {
+        name: 'google',
+        widgets: []
       },
     ]
   }

@@ -6,7 +6,7 @@ const about = require('./about');
 const head = fs.readFileSync('./README.md').toString();
 const arch = fs.readFileSync('./ARCH.md').toString();
 
-let summary = `* [Architecutre](#arch)\n* [Services](#services)\n`;
+let summary = `* [Quickstart](#quickstart)\n* [Architecture](#arch)\n* [Services](#services)\n`;
 
 let body = '### <a name="services"></a>Services\n\n';
 
