@@ -24,7 +24,7 @@ class YammerMessages extends Component {
     this.setState({
       data: res.data
     });
-    this.props.onTitleUpdate(this.state.data.references.find(e => e.type === 'group').full_name + ' - Yammer');
+    // this.props.onTitleUpdate(this.state.data.references.find(e => e.type === 'group').full_name + ' - Yammer');
   }
 
   render() {
@@ -32,7 +32,7 @@ class YammerMessages extends Component {
       <div className='scrollable'>
         <List
           dataSource={this.state.data.messages}
-          renderItem={item => (<List.Item><a target='_blank' href={item.web_url}>{item.title}</a></List.Item>)}
+          renderItem={item => (<List.Item><a target='_blank' href={item.web_url}>{item.title || item.body.plain}</a></List.Item>)}
         />
       </div>
     );

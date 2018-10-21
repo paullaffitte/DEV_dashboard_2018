@@ -151,11 +151,11 @@ const about = {
             params: []
           },
           {
-            name: 'user',
-            description: 'Affiche les messages d\'un utilisateur',
+            name: 'thread',
+            description: 'Affiche les messages d\'un thread',
             params: [
               {
-                name: 'userId',
+                name: 'threadId',
                 type: 'string'
               }
             ]
