@@ -8,7 +8,7 @@ const arch = fs.readFileSync('./ARCH.md').toString();
 
 let summary = `* [Architecutre](#arch)\n* [Services](#services)\n`;
 
-let body = '';
+let body = '### <a name="services"></a>Services\n\n';
 
 about.server.services.forEach(service => {
   summary += `\t* [${service.name}](#${service.name})\n`;

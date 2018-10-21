@@ -24,12 +24,19 @@ Epitech school project.
 		* [minecraft_status](#minecraft_status)
 	* [loripsum](#loripsum)
 		* [loripsum](#loripsum)
+	* [yammer](#yammer)
+		* [posts](#posts)
+		* [received](#received)
+		* [thread](#thread)
 	* [trello](#trello)
 		* [trello_column](#trello_column)
 		* [trello_assigned](#trello_assigned)
 		* [trello_mine](#trello_mine)
 		* [trello_lists](#trello_lists)
 		* [trello_board](#trello_board)
+	* [epitech_intra](#epitech_intra)
+		* [notifications](#notifications)
+		* [mpdule](#mpdule)
 	* [lastfm](#lastfm)
 		* [lastfm_artistTopTracks](#lastfm_artistTopTracks)
 		* [lastfm_artistTopAlbums](#lastfm_artistTopAlbums)
@@ -38,6 +45,8 @@ Epitech school project.
 ## <a name="arch"></a>Architecture
 
 Bla bla bla thomas remplis ça
+
+### <a name="services"></a>Services
 
 ### <a name="weather"></a>weather
 
@@ -131,6 +140,30 @@ Génère des lorem ipsum
 
 `undefined: undefined`
 
+### <a name="yammer"></a>yammer
+
+#### <a name="posts"></a>posts
+
+Affiche les messages d'un groupe
+
+##### Parameters
+
+`groupId: string`
+
+#### <a name="received"></a>received
+
+Affiche les messages reçus
+
+
+
+#### <a name="thread"></a>thread
+
+Affiche les messages d'un thread
+
+##### Parameters
+
+`threadId: string`
+
 ### <a name="trello"></a>trello
 
 #### <a name="trello_column"></a>trello_column
@@ -170,6 +203,22 @@ Affiche les cartes d'un tableau
 ##### Parameters
 
 `boardId: string`
+
+### <a name="epitech_intra"></a>epitech_intra
+
+#### <a name="notifications"></a>notifications
+
+Affiche les notifications de l'utilisateur
+
+
+
+#### <a name="mpdule"></a>mpdule
+
+Affiche les activités d'un module
+
+##### Parameters
+
+`moduleId: string`
 
 ### <a name="lastfm"></a>lastfm
 
