@@ -15,9 +15,17 @@ const server = https.createServer({
 app.setup(server);
 
 http.createServer((req, res) => {
-  const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddres || '').split(':');
-  about.client.host = ip[ip.length - 1];
-  about.server.current_time = (Date.now() / 1000).toFixed(0);
-  res.writeHead(200);
-  res.end(JSON.stringify(about));
+  if (req.url === '/about.json') {
+    const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddres || '').split(':');
+    about.client.host = ip[ip.length - 1];
+    about.server.current_time = (Date.now() / 1000).toFixed(0);
+    res.writeHead(200);
+    res.end(JSON.stringify(about));
+    return;
+  }
+
+  res.writeHead(301, {
+    'Location': 'https://localhost:3000'
+  });
+  res.end();
 }).listen(8080);
